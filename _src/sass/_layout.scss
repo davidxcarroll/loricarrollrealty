@@ -1,0 +1,381 @@
+* {
+	transition: all .2s ease-in-out;
+}
+
+body {
+	font-family: $font-body;
+	color: $black;
+	background-color: $tan;
+}
+
+a {
+	color: $cherry;
+	&:hover {
+		color: lighten($cherry,10);
+	}
+}
+
+.outer {
+	@include pad(4em 0 6em);
+}
+.inner {
+	@include outer-container;
+}
+
+.icon {
+	@include size(5em);
+	@include margin(0 auto);
+}
+
+.svg {
+	fill: darken($yellow,60);
+	opacity: .5;
+}
+
+.pad-x {
+	@include pad(0 4em);
+}
+
+.center {
+	text-align: center;
+}
+
+.margin-top {
+	@include margin(4em null null);
+}
+
+.overview {
+	background-color: $yellow;
+	background: linear-gradient(45deg, lighten($yellow,5), darken($yellow,5));
+}
+.stories {
+	background-color: $purple;
+	background: linear-gradient(45deg, lighten($purple,5), darken($purple,5));
+	.headline {
+		color: $yellow;
+	}
+	.large {
+		color: $tan;
+	}
+	button {
+		@include margin(2em 0 0);
+		font-family: $font-body;
+		text-transform: uppercase;
+		letter-spacing: .1em;
+		color: $yellow;
+		background-color: darken($purple,5);
+		border-radius: 0;
+		&:hover {
+			background-color: darken($purple,2);
+		}
+	}
+}
+
+.stories-blocks {
+	li {
+		@include margin(null null 2em);
+		@include pad(2em 2em 1.6em);
+		background-color: $tan;
+		color: $red;
+	}
+}
+
+.headline {
+	@include margin(1em 0 .5em);
+	text-align: center;
+	color: $cherry;
+}
+
+h1.headline {
+	@include margin(.5em 0 null);
+	font-family: $font-head;
+	font-size: 2.6em;
+}
+
+h2.headline {
+	font-family: $font-head;
+	font-size: 2em;
+}
+
+.large {
+	font-size: 1.4em;
+	line-height: 1.4em;
+	font-weight: 100;
+}
+
+.hero-outer {
+	position: relative;
+	overflow: hidden;
+	@include media(min-width $tablet) {
+		height: 50vh;
+	}
+	@include media(max-width $tablet) {
+		@include pad(2em);
+	}
+}
+
+.hero-photo {
+	position: absolute;
+  top: 0;
+  left: 0;
+  @include size(100%);
+	overflow: hidden;
+	img {
+		position: absolute;
+		@include size(100% auto);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 100%;
+	}
+}
+
+.nav-outer {
+	background-color: $cherry;
+	background: linear-gradient(45deg, lighten($cherry,5), darken($cherry,5));
+	box-shadow: 0 .3em 0 rgba(0,0,0,.1) inset,
+							0 -.3em 0 rgba(0,0,0,.1) inset;
+}
+
+.nav-inner {
+	@include outer-container;
+	text-align: center;
+}
+
+.biz-card {
+	@include pad(1em);
+	background-color: $white;
+	background: linear-gradient(to bottom, $white, darken($white,5));
+	// background-image: url('../_img/bg-texture-lightpaperfibers_@2X.png');
+	box-shadow: 0 .2em 2em rgba(0,0,0,.2),
+	            0 0 0 .4em darken($white,1) inset,
+	            0 0 0 .5em $grey inset;
+	border-radius: .2em;
+	transform: rotate(-3deg);
+	&:hover {
+		transform: rotate(0deg);
+	}
+
+	@include media(min-width $tablet) {
+		position: relative;
+		top: -4em;
+	}
+	@include media(min-width $desktop) {
+		@include span-columns(6);
+	}
+	@include media(max-width $desktop min-width $tablet) {
+		min-width: 35em;
+		display: inline-block;
+	}
+
+	@include media(max-width $tablet) {
+		@include fill-parent;
+	}
+}
+
+.biz-card-photo {
+  position: relative;
+	height: 16em;
+	border-radius: .1em;
+	overflow: hidden;
+	@include media(min-width $tablet) {
+		@include span-columns(5);
+	}
+	@include media(max-width $tablet) {
+		@include fill-parent;
+	}
+	img {
+		position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 100%;
+    min-height: 100%;
+	}
+}
+
+.biz-card-info {
+	@include pad(1em);
+	text-align: left;
+	@include media(min-width $tablet) {
+		@include span-columns(7);
+	}
+	@include media(max-width $tablet) {
+		@include fill-parent;
+	}
+	.biz-card-info-title {
+		h1 {
+			@include margin(0);
+			font-family: $font-head;
+			font-size: 2em;
+			color: darken($black,10);
+		}
+		p {
+			font-size: 1.2em;
+		}
+	}
+	p {
+		line-height: 1.4em;
+	}
+	.biz-card-info-links {
+		a {
+			color: darken($green,10);
+			&:hover {
+				color: $green;
+			}
+		}
+	}
+	.biz-card-info-official {
+		@include margin(1em 0 0);
+		@include pad(.4em 0 0);
+		border-top: 1px solid lighten($tan,10);
+		p {
+			@include margin(.2em 0);
+			font-size: .8em;
+			text-transform: uppercase;
+			letter-spacing: .1em;
+			a {
+				@include margin(1em 0 0);
+				color: lighten($black,20);
+			}
+		}
+	}
+}
+
+// Business card icon hover
+// ==============================
+
+.biz-card-info-links,
+.biz-card-info-official {
+	p {
+		a {
+			transition: all .2s ease-in-out;
+			display: block;
+			position: relative;
+			left: 0;
+			&:before {
+				transition: all .2s ease-in-out;
+				@include size(1.4em);
+				@include margin(null .4em null null);
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				left: -1.5em;
+			}
+			&:hover {
+				left: 2em;
+			}
+			&:hover:before {
+				opacity: .5;
+				left: -2em;
+			}
+		}
+	}
+}
+
+@each $icon in realty_nw, redfin, email, phone {
+  p.card-link-#{$icon} a:before {
+		content: url('../_img/icon-#{$icon}.svg');
+	}
+}
+
+// ==============================
+
+.nav-wrap {
+	@include media(min-width $desktop) {
+		@include span-columns(6);
+		// @include shift(1);
+		@include omega;
+	}
+	@include media(max-width $desktop) {
+		@include fill-parent;
+	}
+}
+
+.tagline {
+	@include media(min-width $desktop) {
+		@include pad(3em 0 0);
+	}
+	@include media(max-width $desktop) {
+		@include margin(-2em 0 0);
+		@include pad(0 0 1em);
+	}
+	h1 {
+		@include pad(0 1em);
+		font-family: $font-accent;
+		font-size: 2.8em;
+		color: lighten($cherry,50);
+	}
+}
+
+.nav-list {
+	@include margin(null null 4em);
+	// box-shadow: 0 .15em 0 lighten($cherry,5) inset,
+	// 						0 -.15em 0 lighten($cherry,5) inset;
+	li {
+		display: inline-block;
+		// @include margin(null .4em);
+		a {
+			@include pad(.5em 1em);
+			display: block;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: .1em;
+			color: lighten($cherry,40);
+			&:hover {
+				color: $white;
+			}
+		}
+	}
+}
+
+.nav-list .selected a {
+	color: $white;
+	background-color: lighten($cherry,10);
+	// box-shadow: inset 0 .15em 0 lighten($cherry,20),
+	// 						inset 0 -.15em 0 lighten($cherry,20);
+}
+
+.two-column {
+	li {
+		@include media(min-width $desktop) {
+			@include span-columns(6);
+			@include omega(2);
+			@extend .pad-x;
+		}
+		@include media(max-width $desktop) {
+			@include span-columns(8);
+			@include shift(2);
+			@include margin(null null 2em);
+		}
+	}
+}
+
+.three-column {
+	li {
+		@include media(min-width $desktop) {
+			@include span-columns(4);
+			@include omega(3);
+			// @extend .pad-x;
+		}
+		@include media(max-width $desktop) {
+			@include span-columns(6);
+			// @include shift(2);
+			// @include margin(null null 2em);
+		}
+	}
+}
+
+.footer {
+	height: 10em;
+	background-color: $tan;
+	background: linear-gradient(45deg, lighten($tan,5), darken($tan,5));
+	color: $black;
+}
+
+
