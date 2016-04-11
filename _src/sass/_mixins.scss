@@ -1,56 +1,6 @@
 // MIXINS
 // ============================================================
 
-@mixin display($attribute) {
-	display: $attribute;
-	// @if ($attribute == none) {
-	// 	visibility: hidden;
-	// } @else if ($attribute == block) {
-	// 	visibility: visible;
-	// } @else if ($attribute == inline-block) {
-	// 	visibility: visible;
-	// }
-}
-
-@mixin border($size, $inset-size, $color, $darken) {
-	box-shadow:
-		inset 0 0 0 $size $color,
-		inset 0 (-$inset-size * 2) 0 darken($orange, $darken),
-		0 $stroke 0 rgba(0,0,0,.1);
-}
-
-@mixin corners($radius) {
-	@include border-top-radius($radius);
-	@include border-right-radius($radius);
-	@include border-bottom-radius($radius);
-	@include border-left-radius($radius);
-}
-
-@mixin corners-each($radius-top, $radius-right, $radius-bottom, $radius-left) {
-	@include border-top-radius($radius-top);
-	@include border-right-radius($radius-right);
-	@include border-bottom-radius($radius-bottom);
-	@include border-left-radius($radius-left);
-}
-
-@mixin text-align($alignment) {
-	text-align: $alignment;
-}
-
-@each $alignment in left, right, center {
-  .#{$alignment} {
-    @include text-align($alignment);
-  }
-}
-
-@mixin replace {
-	@include display(block);
-	@include margin(0);
-	@include pad(0);
-	text-indent: -9999px;
-	overflow: hidden;
-}
-
 @each $direction in top, bottom, left, right {
 	.margin-#{$direction} {
 		margin-#{$direction}: .4em;
@@ -60,4 +10,11 @@
 	.margin-big-#{$direction} {
 		margin-#{$direction}: 2em;
 	}
+}
+
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
 }

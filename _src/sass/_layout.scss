@@ -1,3 +1,6 @@
+// Native
+// ============================================================
+
 * {
 	transition: all .2s ease-in-out;
 }
@@ -15,11 +18,18 @@ a {
 	}
 }
 
+// Classes
+// ============================================================
+
 .outer {
 	@include pad(4em 0 6em);
 }
 .inner {
 	@include outer-container;
+	@include media(max-width $tablet) {
+		@include fill-parent;
+		@include pad(null 2em);
+	}
 }
 
 .icon {
@@ -27,13 +37,10 @@ a {
 	@include margin(0 auto);
 }
 
-.svg {
-	fill: darken($yellow,60);
-	opacity: .5;
-}
-
 .pad-x {
-	@include pad(0 4em);
+	@include media(min-width $tablet) {
+		@include pad(0 4em);
+	}
 }
 
 .center {
@@ -44,46 +51,9 @@ a {
 	@include margin(4em null null);
 }
 
-.overview {
-	background-color: $yellow;
-	background: linear-gradient(45deg, lighten($yellow,5), darken($yellow,5));
-}
-.stories {
-	background-color: $purple;
-	background: linear-gradient(45deg, lighten($purple,5), darken($purple,5));
-	.headline {
-		color: $yellow;
-	}
-	.large {
-		color: $tan;
-	}
-	button {
-		@include margin(2em 0 0);
-		font-family: $font-body;
-		text-transform: uppercase;
-		letter-spacing: .1em;
-		color: $yellow;
-		background-color: darken($purple,5);
-		border-radius: 0;
-		&:hover {
-			background-color: darken($purple,2);
-		}
-	}
-}
-
-.stories-blocks {
-	li {
-		@include margin(null null 2em);
-		@include pad(2em 2em 1.6em);
-		background-color: $tan;
-		color: $red;
-	}
-}
-
 .headline {
 	@include margin(1em 0 .5em);
 	text-align: center;
-	color: $cherry;
 }
 
 h1.headline {
@@ -103,6 +73,47 @@ h2.headline {
 	font-weight: 100;
 }
 
+// Column structure
+// ============================================================
+
+.two-column {
+	li {
+		@include media(min-width $desktop) {
+			@include span-columns(6);
+			@include omega(2);
+			@extend .pad-x;
+		}
+		@include media(max-width $desktop min-width $tablet) {
+			@include span-columns(8);
+			@include shift(2);
+		}
+		@include media(max-width $tablet) {
+			@include fill-parent;
+		}
+		@include media(max-width $desktop) {
+			@include margin(null null 2em);
+		}
+	}
+}
+
+.three-column {
+	@include media(max-width $desktop) {
+		@extend .pad-x;
+	}
+	li {
+		@include media(min-width $desktop) {
+			@include span-columns(4);
+			@include omega(3);
+		}
+		@include media(max-width $desktop) {
+			@include fill-parent;
+		}
+	}
+}
+
+// Hero block
+// ============================================================
+
 .hero-outer {
 	position: relative;
 	overflow: hidden;
@@ -110,7 +121,10 @@ h2.headline {
 		height: 50vh;
 	}
 	@include media(max-width $tablet) {
-		@include pad(2em);
+		height: 20vh;
+	}
+	@include media(max-width $tablet) {
+		display: none;
 	}
 }
 
@@ -133,9 +147,15 @@ h2.headline {
 	}
 }
 
+// Navigation block
+// ============================================================
+
 .nav-outer {
 	background-color: $cherry;
-	background: linear-gradient(45deg, lighten($cherry,5), darken($cherry,5));
+	background: linear-gradient(160deg,
+							adjust-hue($cherry, -10deg) 0%,
+							$cherry 50%,
+							adjust-hue($cherry, 10deg)) 100%;
 	box-shadow: 0 .3em 0 rgba(0,0,0,.1) inset,
 							0 -.3em 0 rgba(0,0,0,.1) inset;
 }
@@ -149,7 +169,7 @@ h2.headline {
 	@include pad(1em);
 	background-color: $white;
 	background: linear-gradient(to bottom, $white, darken($white,5));
-	// background-image: url('../_img/bg-texture-lightpaperfibers_@2X.png');
+	background-image: url('../_img/bg-texture-lightpaperfibers_@2X.png');
 	box-shadow: 0 .2em 2em rgba(0,0,0,.2),
 	            0 0 0 .4em darken($white,1) inset,
 	            0 0 0 .5em $grey inset;
@@ -172,7 +192,9 @@ h2.headline {
 	}
 
 	@include media(max-width $tablet) {
-		@include fill-parent;
+		@include span-columns(10);
+		@include shift(1);
+		@include margin(4em null 2em);
 	}
 }
 
@@ -181,11 +203,12 @@ h2.headline {
 	height: 16em;
 	border-radius: .1em;
 	overflow: hidden;
-	@include media(min-width $tablet) {
+	@include media(min-width $mobile) {
 		@include span-columns(5);
 	}
-	@include media(max-width $tablet) {
+	@include media(max-width $mobile) {
 		@include fill-parent;
+		height: 20em;
 	}
 	img {
 		position: absolute;
@@ -195,7 +218,7 @@ h2.headline {
     bottom: 0;
     margin: auto;
     min-width: 100%;
-    min-height: 100%;
+    min-height: auto;
 	}
 }
 
@@ -205,7 +228,10 @@ h2.headline {
 	@include media(min-width $tablet) {
 		@include span-columns(7);
 	}
-	@include media(max-width $tablet) {
+	@include media(max-width $tablet min-width $mobile) {
+		@include span-columns(7);
+	}
+	@include media(max-width $mobile) {
 		@include fill-parent;
 	}
 	.biz-card-info-title {
@@ -224,9 +250,9 @@ h2.headline {
 	}
 	.biz-card-info-links {
 		a {
-			color: darken($green,10);
+			color: $cherry;
 			&:hover {
-				color: $green;
+				color: ligthen($cherry,10);
 			}
 		}
 	}
@@ -248,7 +274,7 @@ h2.headline {
 }
 
 // Business card icon hover
-// ==============================
+// ===========================
 
 .biz-card-info-links,
 .biz-card-info-official {
@@ -271,7 +297,7 @@ h2.headline {
 				left: 2em;
 			}
 			&:hover:before {
-				opacity: .5;
+				opacity: .4;
 				left: -2em;
 			}
 		}
@@ -284,12 +310,12 @@ h2.headline {
 	}
 }
 
-// ==============================
+// Navigation
+// ===========================
 
 .nav-wrap {
 	@include media(min-width $desktop) {
 		@include span-columns(6);
-		// @include shift(1);
 		@include omega;
 	}
 	@include media(max-width $desktop) {
@@ -315,18 +341,15 @@ h2.headline {
 
 .nav-list {
 	@include margin(null null 4em);
-	// box-shadow: 0 .15em 0 lighten($cherry,5) inset,
-	// 						0 -.15em 0 lighten($cherry,5) inset;
 	li {
 		display: inline-block;
-		// @include margin(null .4em);
 		a {
 			@include pad(.5em 1em);
 			display: block;
 			font-weight: 600;
 			text-transform: uppercase;
 			letter-spacing: .1em;
-			color: lighten($cherry,40);
+			color: lighten($cherry,50);
 			&:hover {
 				color: $white;
 			}
@@ -337,45 +360,74 @@ h2.headline {
 .nav-list .selected a {
 	color: $white;
 	background-color: lighten($cherry,10);
-	// box-shadow: inset 0 .15em 0 lighten($cherry,20),
-	// 						inset 0 -.15em 0 lighten($cherry,20);
 }
 
-.two-column {
-	li {
-		@include media(min-width $desktop) {
-			@include span-columns(6);
-			@include omega(2);
-			@extend .pad-x;
-		}
-		@include media(max-width $desktop) {
-			@include span-columns(8);
-			@include shift(2);
-			@include margin(null null 2em);
+// Overview block
+// ============================================================
+
+.overview {
+	background-color: $yellow;
+	.svg {
+		fill: darken($yellow,50);
+		opacity: .4;
+	}
+	.headline {
+		color: $cherry;
+	}
+}
+
+// Stories block
+// ============================================================
+
+.stories {
+	background-color: $purple;
+	background: linear-gradient(160deg,
+							adjust-hue($purple, -20deg) 0%,
+							$purple 50%,
+							adjust-hue($purple, 20deg)) 100%;
+	.headline {
+		color: lighten($cherry,50);
+	}
+	.large {
+		color: $tan;
+	}
+	button {
+		@include margin(2em 0 0);
+		font-family: $font-body;
+		text-transform: uppercase;
+		letter-spacing: .1em;
+		color: lighten($cherry,50);
+		background-color: shade($purple,20);
+		border-radius: 0;
+		&:hover {
+			color: $white;
 		}
 	}
 }
 
-.three-column {
+.stories-blocks {
 	li {
-		@include media(min-width $desktop) {
-			@include span-columns(4);
-			@include omega(3);
-			// @extend .pad-x;
-		}
-		@include media(max-width $desktop) {
-			@include span-columns(6);
-			// @include shift(2);
-			// @include margin(null null 2em);
+		@include margin(null null 2em);
+		@include pad(2em 2em 1.6em);
+		color: $purple;
+		background-color: $white;
+		background: linear-gradient(to bottom, $white, darken($white,5));
+		background-image: url('../_img/bg-texture-lightpaperfibers_@2X.png');
+		box-shadow: 0 .2em 2em rgba(0,0,0,.2),
+		            0 0 0 .4em darken($white,1) inset,
+		            0 0 0 .5em $grey inset;
+		border-radius: .2em;
+		transform: rotate(-3deg);
+		&:hover {
+			transform: rotate(0deg);
 		}
 	}
 }
 
 .footer {
 	height: 10em;
-	background-color: $tan;
-	background: linear-gradient(45deg, lighten($tan,5), darken($tan,5));
-	color: $black;
+	background-color: darken($purple,10);
+	color: lighten($cherry,50);
 }
 
 
