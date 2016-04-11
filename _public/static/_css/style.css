@@ -405,17 +405,18 @@ fieldset {
 
 input,
 label,
+.contact .blocks li select,
 select {
   display: block;
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 1em; }
 
-label {
+label, .contact .blocks li select {
   font-weight: 600;
   margin-bottom: 0.375em; }
-  label.required::after {
+  label.required::after, .contact .blocks li select.required::after {
     content: "*"; }
-  label abbr {
+  label abbr, .contact .blocks li select abbr {
     display: none; }
 
 input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], textarea,
@@ -583,16 +584,27 @@ picture {
   transition: all 0.2s ease-in-out; }
 
 body {
-  font-family: "Lato", sans-serif;
   color: #424243;
   background-color: #D8D2C5; }
+
+body,
+label,
+.contact .blocks li select,
+input,
+input[type="text"],
+textarea {
+  font-family: "Lato", sans-serif;
+  font-weight: 100; }
 
 a {
   color: #672B3C; }
   a:hover {
     color: #8b3a51; }
+  a:focus {
+    outline: none; }
 
-button {
+button,
+input[type="submit"] {
   margin: 2em 0 0;
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
@@ -600,12 +612,15 @@ button {
   border-radius: .2em; }
 
 .outer {
+  position: relative;
   padding: 4em 0 6em; }
 
 .inner {
   max-width: 68em;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  position: relative;
+  z-index: 1; }
   .inner::after {
     clear: both;
     content: "";
@@ -624,7 +639,7 @@ button {
   .pad-x, .two-column li, .three-column {
     padding: 0 4em; } }
 
-.center {
+.center, .contact .blocks li.contact-submit {
   text-align: center; }
 
 .margin-top {
@@ -669,8 +684,10 @@ h2.headline {
     width: 48.82117%; }
     .two-column li:last-child {
       margin-right: 0; }
-    .two-column li:nth-child(2) {
-      margin-right: 0; } }
+    .two-column li:nth-child(2n) {
+      margin-right: 0; }
+    .two-column li:nth-child(2n+1) {
+      clear: left; } }
 
 @media screen and (max-width: 1100px) and (min-width: 768px) {
   .two-column li {
@@ -698,8 +715,10 @@ h2.headline {
     width: 31.76157%; }
     .three-column li:last-child {
       margin-right: 0; }
-    .three-column li:nth-child(3) {
-      margin-right: 0; } }
+    .three-column li:nth-child(3n) {
+      margin-right: 0; }
+    .three-column li:nth-child(3n+1) {
+      clear: left; } }
 
 @media screen and (max-width: 1100px) {
   .three-column li {
@@ -737,10 +756,28 @@ h2.headline {
     min-width: 50%;
     min-height: 100%; }
 
+.bg-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
+  .bg-photo img {
+    position: absolute;
+    height: auto;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 100%; }
+
 .nav-outer {
   background-color: #672B3C;
-  background: linear-gradient(160deg, #672b46 0%, #672B3C 50%, #672b32) 100%;
-  box-shadow: 0 0.3em 0 rgba(0, 0, 0, 0.1) inset, 0 -0.3em 0 rgba(0, 0, 0, 0.1) inset; }
+  background: linear-gradient(160deg, #672b46 0%, #672B3C 50%, #672b32) 100%; }
 
 .nav-inner {
   max-width: 68em;
@@ -962,19 +999,21 @@ p.card-link-phone a:before {
     padding: 2em 2em 1.6em; }
 
 .stories {
-  background-color: #D8D2C5; }
+  background-color: #672B3C; }
   .stories .headline {
-    color: #672B3C; }
+    color: #FFE17B; }
   .stories .large {
-    color: #424243; }
+    color: #fff; }
   .stories button {
-    color: #dfb2bf;
+    color: #fff;
     background-color: #672B3C; }
     .stories button:hover {
-      color: #fff; }
+      background-color: #8b3a51; }
   .stories .blocks li {
     margin-bottom: 2em;
     padding: 2em 2em 1.6em; }
+  .stories .bg-photo {
+    opacity: .5; }
 
 .history {
   background-color: #FFE17B; }
@@ -990,11 +1029,63 @@ p.card-link-phone a:before {
     color: #dfb2bf; }
 
 .contact {
-  background-color: #672B3C; }
+  background-color: #8b3a51; }
   .contact .headline {
     color: #dfb2bf; }
-  .contact .large {
+  .contact p, .contact label, .contact .blocks li select {
     color: #dfb2bf; }
+  .contact .blocks li {
+    margin-right: 0;
+    margin-bottom: 0.4em;
+    margin-left: 0;
+    padding: 1.4em;
+    text-align: left; }
+    .contact .blocks li input[type="text"],
+    .contact .blocks li select,
+    .contact .blocks li textarea,
+    .contact .blocks li label, .contact .blocks li select {
+      width: 100%;
+      padding: 0.4em 1em;
+      font-size: 1.4em;
+      color: #dfb2bf;
+      background-color: #672B3C;
+      border-radius: .2em;
+      border: none; }
+      .contact .blocks li input[type="text"] input[type="radio"],
+      .contact .blocks li select input[type="radio"],
+      .contact .blocks li textarea input[type="radio"],
+      .contact .blocks li label input[type="radio"], .contact .blocks li select input[type="radio"] {
+        margin-right: 1em;
+        margin-left: 0; }
+      .contact .blocks li input[type="text"]::-webkit-input-placeholder,
+      .contact .blocks li select::-webkit-input-placeholder,
+      .contact .blocks li textarea::-webkit-input-placeholder,
+      .contact .blocks li label::-webkit-input-placeholder, .contact .blocks li select::-webkit-input-placeholder {
+        color: #dfb2bf;
+        opacity: .5; }
+    .contact .blocks li.contact-details,
+    .contact .blocks li.contact-cake {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      .contact .blocks li.contact-details:last-child,
+      .contact .blocks li.contact-cake:last-child {
+        margin-right: 0; }
+      .contact .blocks li.contact-details:nth-child(2n),
+      .contact .blocks li.contact-cake:nth-child(2n) {
+        margin-right: 0; }
+      .contact .blocks li.contact-details:nth-child(2n+1),
+      .contact .blocks li.contact-cake:nth-child(2n+1) {
+        clear: left; }
+    .contact .blocks li.contact-submit {
+      width: 100%;
+      clear: both; }
+      .contact .blocks li.contact-submit input {
+        color: #672B3C;
+        background-color: #dfb2bf; }
+        .contact .blocks li.contact-submit input:hover {
+          background-color: #fff; }
 
 .footer {
   height: 10em;

@@ -6,9 +6,17 @@
 }
 
 body {
-	font-family: $font-body;
 	color: $black;
 	background-color: $tan;
+}
+
+body,
+label,
+input,
+input[type="text"],
+textarea {
+	font-family: $font-body;
+	font-weight: 100;
 }
 
 a {
@@ -16,9 +24,13 @@ a {
 	&:hover {
 		color: lighten($cherry,10);
 	}
+	&:focus {
+		outline: none;
+	}
 }
 
-button {
+button,
+input[type="submit"] {
 	@include margin(2em 0 0);
 	font-family: $font-body;
 	text-transform: uppercase;
@@ -30,6 +42,7 @@ button {
 // ============================================================
 
 .outer {
+	position: relative;
 	@include pad(4em 0 6em);
 }
 .inner {
@@ -38,6 +51,8 @@ button {
 		@include fill-parent;
 		@include pad(null 2em);
 	}
+	position: relative;
+	z-index: 1;
 }
 
 .icon {
@@ -103,7 +118,7 @@ h2.headline {
 	li {
 		@include media(min-width $desktop) {
 			@include span-columns(6);
-			@include omega(2);
+			@include omega(2n);
 			@extend .pad-x;
 		}
 		@include media(max-width $desktop min-width $tablet) {
@@ -126,7 +141,7 @@ h2.headline {
 	li {
 		@include media(min-width $desktop) {
 			@include span-columns(4);
-			@include omega(3);
+			@include omega(3n);
 		}
 		@include media(max-width $desktop) {
 			@include fill-parent;
@@ -170,6 +185,26 @@ h2.headline {
 	}
 }
 
+.bg-photo {
+	position: absolute;
+  top: 0;
+  left: 0;
+  @include size(100%);
+	overflow: hidden;
+	// z-index: -1;
+	img {
+		position: absolute;
+		@include size(100% auto);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 100%;
+	}
+}
+
 // Navigation block
 // ============================================================
 
@@ -179,8 +214,8 @@ h2.headline {
 							adjust-hue($cherry, -10deg) 0%,
 							$cherry 50%,
 							adjust-hue($cherry, 10deg)) 100%;
-	box-shadow: 0 .3em 0 rgba(0,0,0,.1) inset,
-							0 -.3em 0 rgba(0,0,0,.1) inset;
+	// box-shadow: 0 .3em 0 rgba(0,0,0,.1) inset,
+	// 						0 -.3em 0 rgba(0,0,0,.1) inset;
 }
 
 .nav-inner {
@@ -417,18 +452,18 @@ h2.headline {
 // ============================================================
 
 .stories {
-	background-color: $tan;
+	background-color: $cherry;
 	.headline {
-		color: $cherry;
+		color: $yellow;
 	}
 	.large {
-		color: $black;
+		color: $white;
 	}
 	button {
-		color: $cherry-light;
+		color: $white;
 		background-color: $cherry;
 		&:hover {
-			color: $white;
+			background-color: lighten($cherry,10);
 		}
 	}
 	.blocks {
@@ -437,6 +472,9 @@ h2.headline {
 			@include pad(2em 2em 1.6em);
 			@extend .card;
 		}
+	}
+	.bg-photo {
+		opacity: .5;
 	}
 }
 
@@ -468,12 +506,59 @@ h2.headline {
 // ============================================================
 
 .contact {
-	background-color: $cherry;
+	background-color: lighten($cherry,10);
 	.headline {
 		color: $cherry-light;
 	}
-	.large {
+	p, label {
 		color: $cherry-light;
+	}
+	.blocks {
+		li {
+			@include margin(null 0 .4em);
+			@include pad(null 1.4em);
+			text-align: left;
+			input[type="text"],
+			select,
+			textarea,
+			label {
+				// display: inline;
+				@include fill-parent;
+				@include pad(.4em 1em);
+				font-size: 1.4em;
+				color: $cherry-light;
+				background-color: $cherry;
+				border-radius: .2em;
+				border: none;
+				input[type="radio"] {
+					@include margin(null 1em null 0);
+				}
+				&::-webkit-input-placeholder {
+					color: $cherry-light;
+					opacity: .5;
+				}
+			}
+			select {
+				@extend label;
+			}
+			&.contact-details,
+			&.contact-cake {
+				@include span-columns(6);
+				@include omega(2n);
+			}
+			&.contact-submit {
+				@include fill-parent;
+				@extend .center;
+				clear: both;
+				input {
+					color: $cherry;
+					background-color: $cherry-light;
+					&:hover {
+						background-color: $white;
+					}
+				}
+			}
+		}
 	}
 }
 
