@@ -776,8 +776,8 @@ h2.headline {
     min-height: 100%; }
 
 .nav-outer {
-  background-color: #672B3C;
-  background: linear-gradient(160deg, #672b46 0%, #672B3C 50%, #672b32) 100%; }
+  background-color: #a93f3f;
+  background: linear-gradient(160deg, #a93f51 0%, #a93f3f 50%, #a9513f) 100%; }
 
 .nav-inner {
   max-width: 68em;
@@ -958,7 +958,7 @@ p.card-link-phone a:before {
   padding: 0 1em;
   font-family: "Courgette", cursive;
   font-size: 2.8em;
-  color: #dfb2bf; }
+  color: #fff; }
 
 .nav-list {
   margin-bottom: 4em; }
@@ -970,7 +970,7 @@ p.card-link-phone a:before {
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: .1em;
-      color: #dfb2bf; }
+      color: #dda4a4; }
       .nav-list li a:hover {
         color: #fff; }
 
@@ -979,12 +979,25 @@ p.card-link-phone a:before {
   background-color: #8b3a51; }
 
 .overview {
-  background-color: #FFE17B; }
+  background-color: #fff; }
   .overview .svg {
-    fill: #7b5f00;
-    opacity: .4; }
+    fill: #a93f3f; }
   .overview .headline {
-    color: #672B3C; }
+    color: #a93f3f; }
+
+.biz-types {
+  background-color: #f7f5f3; }
+  .biz-types .svg {
+    fill: #a93f3f; }
+  .biz-types .headline {
+    color: #a93f3f; }
+
+.cherry {
+  background-color: #ffd548; }
+  .cherry .svg {
+    fill: #a93f3f; }
+  .cherry .headline {
+    color: #a93f3f; }
 
 .listings {
   background-color: #44284c;
@@ -1001,7 +1014,7 @@ p.card-link-phone a:before {
 .stories {
   background-color: #672B3C; }
   .stories .headline {
-    color: #FFE17B; }
+    color: #ffd548; }
   .stories .large {
     color: #fff; }
   .stories button {
@@ -1016,9 +1029,9 @@ p.card-link-phone a:before {
     opacity: .5; }
 
 .history {
-  background-color: #FFE17B; }
+  background-color: #ffd548; }
   .history .headline {
-    color: #672B3C; }
+    color: #a93f3f; }
   .history .large {
     color: #424243; }
 

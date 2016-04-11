@@ -209,11 +209,11 @@ h2.headline {
 // ============================================================
 
 .nav-outer {
-	background-color: $cherry;
+	background-color: $red;
 	background: linear-gradient(160deg,
-							adjust-hue($cherry, -10deg) 0%,
-							$cherry 50%,
-							adjust-hue($cherry, 10deg)) 100%;
+							adjust-hue($red, -10deg) 0%,
+							$red 50%,
+							adjust-hue($red, 10deg)) 100%;
 	// box-shadow: 0 .3em 0 rgba(0,0,0,.1) inset,
 	// 						0 -.3em 0 rgba(0,0,0,.1) inset;
 }
@@ -382,7 +382,7 @@ h2.headline {
 		@include pad(0 1em);
 		font-family: $font-accent;
 		font-size: 2.8em;
-		color: $cherry-light;
+		color: $white;
 	}
 }
 
@@ -396,7 +396,7 @@ h2.headline {
 			font-weight: 600;
 			text-transform: uppercase;
 			letter-spacing: .1em;
-			color: $cherry-light;
+			color: lighten($red,30);
 			&:hover {
 				color: $white;
 			}
@@ -413,13 +413,38 @@ h2.headline {
 // ============================================================
 
 .overview {
-	background-color: $yellow;
+	background-color: $white;
 	.svg {
-		fill: darken($yellow,50);
-		opacity: .4;
+		fill: $red;
 	}
 	.headline {
-		color: $cherry;
+		color: $red;
+	}
+}
+
+// Biz types block
+// ============================================================
+
+.biz-types {
+	background-color: lighten($tan,15);
+	.svg {
+		fill: $red;
+	}
+	.headline {
+		color: $red;
+	}
+}
+
+// Cherry block
+// ============================================================
+
+.cherry {
+	background-color: $yellow;
+	.svg {
+		fill: $red;
+	}
+	.headline {
+		color: $red;
 	}
 }
 
@@ -484,7 +509,7 @@ h2.headline {
 .history {
 	background-color: $yellow;
 	.headline {
-		color: $cherry;
+		color: $red;
 	}
 	.large {
 		color: $black;

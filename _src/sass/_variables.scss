@@ -3,14 +3,14 @@
 
 $white:        #fff;
 $blue:         #406180;
-$red:          #843131;
+$red:          lighten(#843131,10);
 $cherry:       #672B3C;
 $cherry-light: lighten($cherry,50);
 $purple:       lighten(#351F3B,5);
 $tan:          #D8D2C5;
 $green:        #85A699;
 $yellow-green: #819627;
-$yellow:       #FFE17B;
+$yellow:       darken(#FFE17B,10);
 $black:        #424243;
 $grey:         darken($white,10);
 
