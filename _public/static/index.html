@@ -246,7 +246,7 @@
 
     <p class="large pad-x">Sed molestie augue sit amet leo consequat posuere. Vestibulum ante ipsum primis in faucibus orci luctus et.</p>
 
-    <ul class="inner three-column margin-top blocks">
+    <ul class="inner margin-top contact-form blocks">
       <li>
         <p>Your name</p>
         <input type="text" placeholder="First Last"></input>
@@ -259,20 +259,25 @@
         <p>Phone number</p>
         <input type="text" placeholder="123-456-7890"></input>
       </li>
-      <li>
-        <label><input type="radio" name="buy_or_sell"></input>Buying</label>
+      <li class="contact-buy_or_sell">
+        <p>Buying, selling or just saying hello?</p>
+        <ul class="three-column">
+          <li>
+            <label><input type="radio" name="buy_or_sell"></input>Buying</label>
+          </li>
+          <li>
+            <label><input type="radio" name="buy_or_sell"></input>Selling</label>
+          </li>
+          <li>
+            <label><input type="radio" name="buy_or_sell"></input>Hello</label>
+          </li>
+        </ul>
       </li>
       <li>
-        <label><input type="radio" name="buy_or_sell"></input>Selling</label>
-      </li>
-      <li>
-        <label><input type="radio" name="buy_or_sell"></input>Other</label>
-      </li>
-      <li class="contact-details">
         <p>Any details?</p>
         <textarea placeholder="Number of bathrooms, square footage, lot size, neighborhood, etc."></textarea>
       </li>
-      <li class="contact-cake">
+      <li>
         <p>Flavor of cake?</p>
         <select>
           <option value="yellow">Classic yellow with chocolate</option>

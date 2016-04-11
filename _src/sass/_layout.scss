@@ -587,6 +587,16 @@ a .listing-info {
 // ============================================================
 
 .contact {
+	.large {
+		@include media(min-width $desktop) {
+			@include span-columns(8);
+			@include shift(2);
+		}
+	}
+	.contact-form {
+		@include span-columns(6);
+		@include shift(3);
+	}
 	background-color: $red;
 	background: linear-gradient(160deg,
 							adjust-hue($red, -10deg) 0%,
@@ -599,24 +609,21 @@ a .listing-info {
 		color: $tan;
 	}
 	.blocks {
-		li {
+		> li {
 			@include margin(null 0 .4em);
-			@include pad(null 1.4em);
-			text-align: left;
 			input[type="text"],
 			select,
 			textarea,
 			label {
-				// display: inline;
 				@include fill-parent;
-				@include pad(.4em 1em);
+				@include pad(.4em .8em);
 				font-size: 1.4em;
 				color: $purple;
 				background-color: $white;
 				border-radius: .2em;
 				border: none;
 				input[type="radio"] {
-					@include margin(null 1em null 0);
+					@include margin(null .5em null 0);
 				}
 				&::-webkit-input-placeholder {
 					color: tint($purple,30);
@@ -626,13 +633,9 @@ a .listing-info {
 			select {
 				@extend label;
 			}
-			&.contact-details,
-			&.contact-cake {
-				@include span-columns(6);
-				@include omega(2n);
-			}
 			&.contact-submit {
 				@include fill-parent;
+				@include margin(4em null null);
 				@extend .center;
 				clear: both;
 				input {
@@ -644,6 +647,18 @@ a .listing-info {
 					}
 				}
 			}
+		}
+	}
+}
+
+.contact-buy_or_sell {
+	@include outer-container;
+	.three-column {
+		@include outer-container;
+		@include pad(0);
+		text-align: left;
+		li label:hover {
+			cursor: pointer;
 		}
 	}
 }

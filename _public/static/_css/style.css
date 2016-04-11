@@ -405,18 +405,18 @@ fieldset {
 
 input,
 label,
-.contact .blocks li select,
+.contact .blocks > li select,
 select {
   display: block;
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 1em; }
 
-label, .contact .blocks li select {
+label, .contact .blocks > li select {
   font-weight: 600;
   margin-bottom: 0.375em; }
-  label.required::after, .contact .blocks li select.required::after {
+  label.required::after, .contact .blocks > li select.required::after {
     content: "*"; }
-  label abbr, .contact .blocks li select abbr {
+  label abbr, .contact .blocks > li select abbr {
     display: none; }
 
 input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], textarea,
@@ -589,7 +589,7 @@ body {
 
 body,
 label,
-.contact .blocks li select,
+.contact .blocks > li select,
 input,
 input[type="text"],
 textarea {
@@ -640,7 +640,7 @@ input[type="submit"] {
   .pad-x, .two-column li, .three-column {
     padding: 0 4em; } }
 
-.center, .contact .blocks li.contact-submit {
+.center, .contact .blocks > li.contact-submit {
   text-align: center; }
 
 .margin-top {
@@ -1097,63 +1097,85 @@ a .listing-info .listing-details {
 .contact {
   background-color: #a93f3f;
   background: linear-gradient(160deg, #a93f51 0%, #a93f3f 50%, #a9513f) 100%; }
+  @media screen and (min-width: 1100px) {
+    .contact .large {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 65.88078%;
+      margin-left: 17.05961%; }
+      .contact .large:last-child {
+        margin-right: 0; } }
+  .contact .contact-form {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    margin-left: 25.58941%; }
+    .contact .contact-form:last-child {
+      margin-right: 0; }
   .contact .headline {
     color: #fff; }
-  .contact p, .contact label, .contact .blocks li select {
+  .contact p, .contact label, .contact .blocks > li select {
     color: #D8D2C5; }
-  .contact .blocks li {
+  .contact .blocks > li {
     margin-right: 0;
     margin-bottom: 0.4em;
-    margin-left: 0;
-    padding: 1.4em;
-    text-align: left; }
-    .contact .blocks li input[type="text"],
-    .contact .blocks li select,
-    .contact .blocks li textarea,
-    .contact .blocks li label, .contact .blocks li select {
+    margin-left: 0; }
+    .contact .blocks > li input[type="text"],
+    .contact .blocks > li select,
+    .contact .blocks > li textarea,
+    .contact .blocks > li label, .contact .blocks > li select {
       width: 100%;
-      padding: 0.4em 1em;
+      padding: 0.4em 0.8em;
       font-size: 1.4em;
       color: #44284c;
       background-color: #fff;
       border-radius: .2em;
       border: none; }
-      .contact .blocks li input[type="text"] input[type="radio"],
-      .contact .blocks li select input[type="radio"],
-      .contact .blocks li textarea input[type="radio"],
-      .contact .blocks li label input[type="radio"], .contact .blocks li select input[type="radio"] {
-        margin-right: 1em;
+      .contact .blocks > li input[type="text"] input[type="radio"],
+      .contact .blocks > li select input[type="radio"],
+      .contact .blocks > li textarea input[type="radio"],
+      .contact .blocks > li label input[type="radio"], .contact .blocks > li select input[type="radio"] {
+        margin-right: 0.5em;
         margin-left: 0; }
-      .contact .blocks li input[type="text"]::-webkit-input-placeholder,
-      .contact .blocks li select::-webkit-input-placeholder,
-      .contact .blocks li textarea::-webkit-input-placeholder,
-      .contact .blocks li label::-webkit-input-placeholder, .contact .blocks li select::-webkit-input-placeholder {
+      .contact .blocks > li input[type="text"]::-webkit-input-placeholder,
+      .contact .blocks > li select::-webkit-input-placeholder,
+      .contact .blocks > li textarea::-webkit-input-placeholder,
+      .contact .blocks > li label::-webkit-input-placeholder, .contact .blocks > li select::-webkit-input-placeholder {
         color: #7c6882;
         opacity: .5; }
-    .contact .blocks li.contact-details,
-    .contact .blocks li.contact-cake {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%; }
-      .contact .blocks li.contact-details:last-child,
-      .contact .blocks li.contact-cake:last-child {
-        margin-right: 0; }
-      .contact .blocks li.contact-details:nth-child(2n),
-      .contact .blocks li.contact-cake:nth-child(2n) {
-        margin-right: 0; }
-      .contact .blocks li.contact-details:nth-child(2n+1),
-      .contact .blocks li.contact-cake:nth-child(2n+1) {
-        clear: left; }
-    .contact .blocks li.contact-submit {
+    .contact .blocks > li.contact-submit {
       width: 100%;
+      margin-top: 4em;
       clear: both; }
-      .contact .blocks li.contact-submit input {
+      .contact .blocks > li.contact-submit input {
         font-size: 1.6em;
         color: #a93f3f;
         background-color: #ffd548; }
-        .contact .blocks li.contact-submit input:hover {
+        .contact .blocks > li.contact-submit input:hover {
           background-color: #ffe17b; }
+
+.contact-buy_or_sell {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .contact-buy_or_sell::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .contact-buy_or_sell .three-column {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    text-align: left; }
+    .contact-buy_or_sell .three-column::after {
+      clear: both;
+      content: "";
+      display: table; }
+    .contact-buy_or_sell .three-column li label:hover, .contact-buy_or_sell .three-column .contact .blocks > li select:hover, .contact .contact-buy_or_sell .three-column .blocks > li select:hover {
+      cursor: pointer; }
 
 .footer {
   height: 10em;
