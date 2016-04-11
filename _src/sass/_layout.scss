@@ -18,6 +18,14 @@ a {
 	}
 }
 
+button {
+	@include margin(2em 0 0);
+	font-family: $font-body;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	border-radius: .2em;
+}
+
 // Classes
 // ============================================================
 
@@ -71,6 +79,21 @@ h2.headline {
 	font-size: 1.4em;
 	line-height: 1.4em;
 	font-weight: 100;
+}
+
+.card {
+	@include pad(1em);
+	background-color: $white;
+	background: linear-gradient(to bottom, $white, darken($white,5));
+	background-image: url('../_img/bg-texture-lightpaperfibers_@2X.png');
+	box-shadow: 0 .2em 2em rgba(0,0,0,.2),
+	            0 0 0 .4em darken($white,1) inset,
+	            0 0 0 .5em $grey inset;
+	border-radius: .2em;
+	transform: rotate(-3deg);
+	&:hover {
+		transform: rotate(0deg);
+	}
 }
 
 // Column structure
@@ -166,18 +189,7 @@ h2.headline {
 }
 
 .biz-card {
-	@include pad(1em);
-	background-color: $white;
-	background: linear-gradient(to bottom, $white, darken($white,5));
-	background-image: url('../_img/bg-texture-lightpaperfibers_@2X.png');
-	box-shadow: 0 .2em 2em rgba(0,0,0,.2),
-	            0 0 0 .4em darken($white,1) inset,
-	            0 0 0 .5em $grey inset;
-	border-radius: .2em;
-	transform: rotate(-3deg);
-	&:hover {
-		transform: rotate(0deg);
-	}
+	@extend .card;
 
 	@include media(min-width $tablet) {
 		position: relative;
@@ -380,9 +392,24 @@ h2.headline {
 // ============================================================
 
 .listings {
-	background-color: $tan;
+	background-color: $purple;
+	background: linear-gradient(160deg,
+							adjust-hue($purple, -20deg) 0%,
+							$purple 50%,
+							adjust-hue($purple, 20deg)) 100%;
+	color: $black;
 	.headline {
-		color: $purple;
+		color: $cherry-light;
+	}
+	.large {
+		color: $tan;
+	}
+	.blocks {
+		li {
+			@include margin(null null 2em);
+			@include pad(2em 2em 1.6em);
+			@extend .card;
+		}
 	}
 }
 
@@ -390,46 +417,25 @@ h2.headline {
 // ============================================================
 
 .stories {
-	background-color: $purple;
-	background: linear-gradient(160deg,
-							adjust-hue($purple, -20deg) 0%,
-							$purple 50%,
-							adjust-hue($purple, 20deg)) 100%;
+	background-color: $tan;
 	.headline {
-		color: $cherry-light;
+		color: $cherry;
 	}
 	.large {
-		color: $tan;
+		color: $black;
 	}
 	button {
-		@include margin(2em 0 0);
-		font-family: $font-body;
-		text-transform: uppercase;
-		letter-spacing: .1em;
 		color: $cherry-light;
-		background-color: shade($purple,20);
-		border-radius: 0;
+		background-color: $cherry;
 		&:hover {
 			color: $white;
 		}
 	}
-}
-
-.stories-blocks {
-	li {
-		@include margin(null null 2em);
-		@include pad(2em 2em 1.6em);
-		color: $purple;
-		background-color: $white;
-		background: linear-gradient(to bottom, $white, darken($white,5));
-		background-image: url('../_img/bg-texture-lightpaperfibers_@2X.png');
-		box-shadow: 0 .2em 2em rgba(0,0,0,.2),
-		            0 0 0 .4em darken($white,1) inset,
-		            0 0 0 .5em $grey inset;
-		border-radius: .2em;
-		transform: rotate(-3deg);
-		&:hover {
-			transform: rotate(0deg);
+	.blocks {
+		li {
+			@include margin(null null 2em);
+			@include pad(2em 2em 1.6em);
+			@extend .card;
 		}
 	}
 }
@@ -439,12 +445,11 @@ h2.headline {
 
 .history {
 	background-color: $yellow;
-	.svg {
-		fill: darken($yellow,50);
-		opacity: .4;
-	}
 	.headline {
 		color: $cherry;
+	}
+	.large {
+		color: $black;
 	}
 }
 
@@ -452,10 +457,23 @@ h2.headline {
 // ============================================================
 
 .tools {
-	background-color: $cherry;
-	color: $cherry-light;
+	background-color: $purple;
+	color: $tan;
 	.headline {
-		color: $yellow;
+		color: $cherry-light;
+	}
+}
+
+// Contact block
+// ============================================================
+
+.contact {
+	background-color: $cherry;
+	.headline {
+		color: $cherry-light;
+	}
+	.large {
+		color: $cherry-light;
 	}
 }
 
