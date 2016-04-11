@@ -938,6 +938,11 @@ p.card-link-phone a:before {
   .overview .headline {
     color: #672B3C; }
 
+.listings {
+  background-color: #D8D2C5; }
+  .listings .headline {
+    color: #44284c; }
+
 .stories {
   background-color: #44284c;
   background: linear-gradient(160deg, #38284c 0%, #44284c 50%, #4c2847) 100%; }
@@ -969,7 +974,21 @@ p.card-link-phone a:before {
   .stories-blocks li:hover {
     transform: rotate(0deg); }
 
+.history {
+  background-color: #FFE17B; }
+  .history .svg {
+    fill: #7b5f00;
+    opacity: .4; }
+  .history .headline {
+    color: #672B3C; }
+
+.tools {
+  background-color: #672B3C;
+  color: #dfb2bf; }
+  .tools .headline {
+    color: #FFE17B; }
+
 .footer {
   height: 10em;
-  background-color: #26162a;
+  background-color: #672B3C;
   color: #dfb2bf; }

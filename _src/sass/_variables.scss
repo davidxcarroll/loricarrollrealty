@@ -5,6 +5,7 @@ $white:        #fff;
 $blue:         #406180;
 $red:          #843131;
 $cherry:       #672B3C;
+$cherry-light: lighten($cherry,50);
 $purple:       lighten(#351F3B,5);
 $tan:          #D8D2C5;
 $green:        #85A699;

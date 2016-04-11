@@ -335,7 +335,7 @@ h2.headline {
 		@include pad(0 1em);
 		font-family: $font-accent;
 		font-size: 2.8em;
-		color: lighten($cherry,50);
+		color: $cherry-light;
 	}
 }
 
@@ -349,7 +349,7 @@ h2.headline {
 			font-weight: 600;
 			text-transform: uppercase;
 			letter-spacing: .1em;
-			color: lighten($cherry,50);
+			color: $cherry-light;
 			&:hover {
 				color: $white;
 			}
@@ -376,6 +376,16 @@ h2.headline {
 	}
 }
 
+// Listings block
+// ============================================================
+
+.listings {
+	background-color: $tan;
+	.headline {
+		color: $purple;
+	}
+}
+
 // Stories block
 // ============================================================
 
@@ -386,7 +396,7 @@ h2.headline {
 							$purple 50%,
 							adjust-hue($purple, 20deg)) 100%;
 	.headline {
-		color: lighten($cherry,50);
+		color: $cherry-light;
 	}
 	.large {
 		color: $tan;
@@ -396,7 +406,7 @@ h2.headline {
 		font-family: $font-body;
 		text-transform: uppercase;
 		letter-spacing: .1em;
-		color: lighten($cherry,50);
+		color: $cherry-light;
 		background-color: shade($purple,20);
 		border-radius: 0;
 		&:hover {
@@ -424,10 +434,36 @@ h2.headline {
 	}
 }
 
-.footer {
-	height: 10em;
-	background-color: darken($purple,10);
-	color: lighten($cherry,50);
+// History block
+// ============================================================
+
+.history {
+	background-color: $yellow;
+	.svg {
+		fill: darken($yellow,50);
+		opacity: .4;
+	}
+	.headline {
+		color: $cherry;
+	}
 }
 
+// Tools block
+// ============================================================
 
+.tools {
+	background-color: $cherry;
+	color: $cherry-light;
+	.headline {
+		color: $yellow;
+	}
+}
+
+// Footer block
+// ============================================================
+
+.footer {
+	height: 10em;
+	background-color: $cherry;
+	color: $cherry-light;
+}
