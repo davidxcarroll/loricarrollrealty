@@ -31,7 +31,6 @@ a {
 
 button,
 input[type="submit"] {
-	@include margin(2em 0 0);
 	font-family: $font-body;
 	text-transform: uppercase;
 	letter-spacing: .1em;
@@ -53,6 +52,9 @@ input[type="submit"] {
 	}
 	position: relative;
 	z-index: 1;
+	button {
+		@include margin(2em 0 0);
+	}
 }
 
 .icon {
@@ -115,6 +117,10 @@ h2.headline {
 // ============================================================
 
 .two-column {
+	@include media(min-width $desktop) {
+		@include span-columns(10);
+		@include shift(1);
+	}
 	li {
 		@include media(min-width $desktop) {
 			@include span-columns(6);
@@ -396,7 +402,7 @@ h2.headline {
 			font-weight: 600;
 			text-transform: uppercase;
 			letter-spacing: .1em;
-			color: lighten($red,30);
+			color: $cherry-light;
 			&:hover {
 				color: $white;
 			}
@@ -415,33 +421,27 @@ h2.headline {
 .overview {
 	background-color: $white;
 	.svg {
-		fill: $red;
+		fill: lighten($purple,10);
 	}
 	.headline {
-		color: $red;
+		color: $purple;
+	}
+	p {
+		color: shade(darken($tan,10),20);
 	}
 }
 
-// Biz types block
+// Overview buckets block
 // ============================================================
 
-.biz-types {
-	background-color: lighten($tan,15);
-	.svg {
-		fill: $red;
-	}
-	.headline {
-		color: $red;
-	}
-}
-
-// Cherry block
-// ============================================================
-
-.cherry {
+.overview-buckets {
 	background-color: $yellow;
+	background: linear-gradient(160deg,
+							adjust-hue($yellow, -5deg) 0%,
+							$yellow 50%,
+							adjust-hue($yellow, 5deg)) 100%;
 	.svg {
-		fill: $red;
+		fill: darken($red,10);
 	}
 	.headline {
 		color: $red;
@@ -459,16 +459,84 @@ h2.headline {
 							adjust-hue($purple, 20deg)) 100%;
 	color: $black;
 	.headline {
-		color: $cherry-light;
+		color: $white;
 	}
 	.large {
 		color: $tan;
 	}
 	.blocks {
-		li {
+		> li {
 			@include margin(null null 2em);
 			@include pad(2em 2em 1.6em);
 			@extend .card;
+			@include pad(1em);
+		}
+	}
+	button {
+		color: $cherry-light;
+		background-color: $red;
+		&:hover {
+			color: $white;
+			background-color: lighten($red,10);
+		}
+	}
+	.bg-photo {
+		opacity: .2;
+	}
+}
+
+.listing-photo img {
+	box-shadow: 0 0 0 .1em $grey;
+}
+
+.listing-info {
+	@include outer-container;
+	@include pad(.4em 1em);
+	.listing-price {
+		font-size: 1.2em;
+		font-weight: 600;
+	}
+
+	.listing-details {
+		font-size: .8em;
+		text-transform: uppercase;
+		letter-spacing: .1em;
+	}
+}
+
+a .listing-info {
+	.listing-price {
+		color: $red;
+	}
+	.listing-location {
+		color: $black;
+	}
+	.listing-details {
+		color: shade(darken($tan,10),20);
+	}
+}
+
+// History block
+// ============================================================
+
+.history {
+	background-color: $purple;
+	background: linear-gradient(160deg,
+							adjust-hue($purple, -20deg) 0%,
+							$purple 50%,
+							adjust-hue($purple, 20deg)) 100%;
+	.headline {
+		color: $white;
+	}
+	.large {
+		color: $tan;
+	}
+	button {
+		color: $cherry-light;
+		background-color: $red;
+		&:hover {
+			color: $white;
+			background-color: lighten($red,10);
 		}
 	}
 }
@@ -479,16 +547,17 @@ h2.headline {
 .stories {
 	background-color: $cherry;
 	.headline {
-		color: $yellow;
+		color: $white;
 	}
 	.large {
-		color: $white;
+		color: $tan;
 	}
 	button {
-		color: $white;
-		background-color: $cherry;
+		color: $cherry-light;
+		background-color: $red;
 		&:hover {
-			background-color: lighten($cherry,10);
+			color: $white;
+			background-color: lighten($red,10);
 		}
 	}
 	.blocks {
@@ -503,27 +572,14 @@ h2.headline {
 	}
 }
 
-// History block
-// ============================================================
-
-.history {
-	background-color: $yellow;
-	.headline {
-		color: $red;
-	}
-	.large {
-		color: $black;
-	}
-}
-
 // Tools block
 // ============================================================
 
 .tools {
-	background-color: $purple;
-	color: $tan;
+	background-color: $white;
+	color: $black;
 	.headline {
-		color: $cherry-light;
+		color: lighten($purple,10);
 	}
 }
 
@@ -531,12 +587,16 @@ h2.headline {
 // ============================================================
 
 .contact {
-	background-color: lighten($cherry,10);
+	background-color: $red;
+	background: linear-gradient(160deg,
+							adjust-hue($red, -10deg) 0%,
+							$red 50%,
+							adjust-hue($red, 10deg)) 100%;
 	.headline {
-		color: $cherry-light;
+		color: $white;
 	}
 	p, label {
-		color: $cherry-light;
+		color: $tan;
 	}
 	.blocks {
 		li {
@@ -551,15 +611,15 @@ h2.headline {
 				@include fill-parent;
 				@include pad(.4em 1em);
 				font-size: 1.4em;
-				color: $cherry-light;
-				background-color: $cherry;
+				color: $purple;
+				background-color: $white;
 				border-radius: .2em;
 				border: none;
 				input[type="radio"] {
 					@include margin(null 1em null 0);
 				}
 				&::-webkit-input-placeholder {
-					color: $cherry-light;
+					color: tint($purple,30);
 					opacity: .5;
 				}
 			}
@@ -576,10 +636,11 @@ h2.headline {
 				@extend .center;
 				clear: both;
 				input {
-					color: $cherry;
-					background-color: $cherry-light;
+					font-size: 1.6em;
+					color: $red;
+					background-color: $yellow;
 					&:hover {
-						background-color: $white;
+						background-color: lighten($yellow,10);
 					}
 				}
 			}
@@ -592,6 +653,6 @@ h2.headline {
 
 .footer {
 	height: 10em;
-	background-color: $cherry;
-	color: $cherry-light;
+	background-color: darken($red,10);
+	color: $tan;
 }

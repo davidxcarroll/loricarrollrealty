@@ -605,7 +605,6 @@ a {
 
 button,
 input[type="submit"] {
-  margin: 2em 0 0;
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -629,6 +628,8 @@ input[type="submit"] {
     .inner {
       width: 100%;
       padding: 2em; } }
+  .inner button {
+    margin: 2em 0 0; }
 
 .icon {
   height: 5em;
@@ -665,7 +666,7 @@ h2.headline {
   line-height: 1.4em;
   font-weight: 100; }
 
-.card, .biz-card, .listings .blocks li, .stories .blocks li {
+.card, .biz-card, .listings .blocks > li, .stories .blocks li {
   padding: 1em;
   background-color: #fff;
   background: linear-gradient(to bottom, #fff, #f2f2f2);
@@ -673,8 +674,18 @@ h2.headline {
   box-shadow: 0 0.2em 2em rgba(0, 0, 0, 0.2), 0 0 0 0.4em #fcfcfc inset, 0 0 0 0.5em #e6e6e6 inset;
   border-radius: .2em;
   transform: rotate(-3deg); }
-  .card:hover, .biz-card:hover, .listings .blocks li:hover, .stories .blocks li:hover {
+  .card:hover, .biz-card:hover, .listings .blocks > li:hover, .stories .blocks li:hover {
     transform: rotate(0deg); }
+
+@media screen and (min-width: 1100px) {
+  .two-column {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%;
+    margin-left: 8.5298%; }
+    .two-column:last-child {
+      margin-right: 0; } }
 
 @media screen and (min-width: 1100px) {
   .two-column li {
@@ -970,7 +981,7 @@ p.card-link-phone a:before {
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: .1em;
-      color: #dda4a4; }
+      color: #dfb2bf; }
       .nav-list li a:hover {
         color: #fff; }
 
@@ -981,22 +992,18 @@ p.card-link-phone a:before {
 .overview {
   background-color: #fff; }
   .overview .svg {
-    fill: #a93f3f; }
+    fill: #62396d; }
   .overview .headline {
-    color: #a93f3f; }
+    color: #44284c; }
+  .overview p {
+    color: #9c9585; }
 
-.biz-types {
-  background-color: #f7f5f3; }
-  .biz-types .svg {
-    fill: #a93f3f; }
-  .biz-types .headline {
-    color: #a93f3f; }
-
-.cherry {
-  background-color: #ffd548; }
-  .cherry .svg {
-    fill: #a93f3f; }
-  .cherry .headline {
+.overview-buckets {
+  background-color: #ffd548;
+  background: linear-gradient(160deg, #ffc648 0%, #ffd548 50%, #ffe548) 100%; }
+  .overview-buckets .svg {
+    fill: #843131; }
+  .overview-buckets .headline {
     color: #a93f3f; }
 
 .listings {
@@ -1004,49 +1011,96 @@ p.card-link-phone a:before {
   background: linear-gradient(160deg, #38284c 0%, #44284c 50%, #4c2847) 100%;
   color: #424243; }
   .listings .headline {
-    color: #dfb2bf; }
+    color: #fff; }
   .listings .large {
     color: #D8D2C5; }
-  .listings .blocks li {
+  .listings .blocks > li {
     margin-bottom: 2em;
-    padding: 2em 2em 1.6em; }
+    padding: 2em 2em 1.6em;
+    padding: 1em; }
+  .listings button {
+    color: #dfb2bf;
+    background-color: #a93f3f; }
+    .listings button:hover {
+      color: #fff;
+      background-color: #c25959; }
+  .listings .bg-photo {
+    opacity: .2; }
+
+.listing-photo img {
+  box-shadow: 0 0 0 0.1em #e6e6e6; }
+
+.listing-info {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.4em 1em; }
+  .listing-info::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .listing-info .listing-price {
+    font-size: 1.2em;
+    font-weight: 600; }
+  .listing-info .listing-details {
+    font-size: .8em;
+    text-transform: uppercase;
+    letter-spacing: .1em; }
+
+a .listing-info .listing-price {
+  color: #a93f3f; }
+
+a .listing-info .listing-location {
+  color: #424243; }
+
+a .listing-info .listing-details {
+  color: #9c9585; }
+
+.history {
+  background-color: #44284c;
+  background: linear-gradient(160deg, #38284c 0%, #44284c 50%, #4c2847) 100%; }
+  .history .headline {
+    color: #fff; }
+  .history .large {
+    color: #D8D2C5; }
+  .history button {
+    color: #dfb2bf;
+    background-color: #a93f3f; }
+    .history button:hover {
+      color: #fff;
+      background-color: #c25959; }
 
 .stories {
   background-color: #672B3C; }
   .stories .headline {
-    color: #ffd548; }
-  .stories .large {
     color: #fff; }
+  .stories .large {
+    color: #D8D2C5; }
   .stories button {
-    color: #fff;
-    background-color: #672B3C; }
+    color: #dfb2bf;
+    background-color: #a93f3f; }
     .stories button:hover {
-      background-color: #8b3a51; }
+      color: #fff;
+      background-color: #c25959; }
   .stories .blocks li {
     margin-bottom: 2em;
     padding: 2em 2em 1.6em; }
   .stories .bg-photo {
     opacity: .5; }
 
-.history {
-  background-color: #ffd548; }
-  .history .headline {
-    color: #a93f3f; }
-  .history .large {
-    color: #424243; }
-
 .tools {
-  background-color: #44284c;
-  color: #D8D2C5; }
+  background-color: #fff;
+  color: #424243; }
   .tools .headline {
-    color: #dfb2bf; }
+    color: #62396d; }
 
 .contact {
-  background-color: #8b3a51; }
+  background-color: #a93f3f;
+  background: linear-gradient(160deg, #a93f51 0%, #a93f3f 50%, #a9513f) 100%; }
   .contact .headline {
-    color: #dfb2bf; }
+    color: #fff; }
   .contact p, .contact label, .contact .blocks li select {
-    color: #dfb2bf; }
+    color: #D8D2C5; }
   .contact .blocks li {
     margin-right: 0;
     margin-bottom: 0.4em;
@@ -1060,8 +1114,8 @@ p.card-link-phone a:before {
       width: 100%;
       padding: 0.4em 1em;
       font-size: 1.4em;
-      color: #dfb2bf;
-      background-color: #672B3C;
+      color: #44284c;
+      background-color: #fff;
       border-radius: .2em;
       border: none; }
       .contact .blocks li input[type="text"] input[type="radio"],
@@ -1074,7 +1128,7 @@ p.card-link-phone a:before {
       .contact .blocks li select::-webkit-input-placeholder,
       .contact .blocks li textarea::-webkit-input-placeholder,
       .contact .blocks li label::-webkit-input-placeholder, .contact .blocks li select::-webkit-input-placeholder {
-        color: #dfb2bf;
+        color: #7c6882;
         opacity: .5; }
     .contact .blocks li.contact-details,
     .contact .blocks li.contact-cake {
@@ -1095,12 +1149,13 @@ p.card-link-phone a:before {
       width: 100%;
       clear: both; }
       .contact .blocks li.contact-submit input {
-        color: #672B3C;
-        background-color: #dfb2bf; }
+        font-size: 1.6em;
+        color: #a93f3f;
+        background-color: #ffd548; }
         .contact .blocks li.contact-submit input:hover {
-          background-color: #fff; }
+          background-color: #ffe17b; }
 
 .footer {
   height: 10em;
-  background-color: #672B3C;
-  color: #dfb2bf; }
+  background-color: #843131;
+  color: #D8D2C5; }
