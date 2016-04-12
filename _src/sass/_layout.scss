@@ -48,6 +48,7 @@ input[type="submit"] {
 	@include media(max-width $tablet) {
 		@include pad(2em 0 3em);
 	}
+	overflow: hidden;
 }
 .inner {
 	@include outer-container;
@@ -188,42 +189,40 @@ h2.headline {
 	}
 }
 
-.hero-photo {
-	position: absolute;
-  top: 0;
-  left: 0;
-  @include size(100%);
-	overflow: hidden;
-	img {
-		position: absolute;
-		@include size(100% auto);
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    min-width: 50%;
-    min-height: 100%;
-	}
-}
+// .hero-photo {
+// 	position: absolute;
+//   top: 0;
+//   left: 0;
+//   @include size(100%);
+// 	overflow: hidden;
+// 	img {
+// 		position: absolute;
+// 		@include size(100% auto);
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     margin: auto;
+//     min-width: 50%;
+//     min-height: 100%;
+// 	}
+// }
 
 .bg-photo {
 	position: absolute;
-  top: 0;
-  left: 0;
-  @include size(100%);
+  top: -50%;
+  left: -50%;
+  @include size(200%);
 	overflow: hidden;
-	// z-index: -1;
 	img {
 		position: absolute;
-		@include size(100% auto);
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     margin: auto;
     min-width: 50%;
-    min-height: 100%;
+    min-height: 50%;
 	}
 }
 
@@ -307,8 +306,8 @@ h2.headline {
 		h1 {
 			@include margin(0);
 			font-family: $font-head;
-			font-size: 2em;
-			color: darken($black,10);
+			font-size: 1.2em;
+			// color: darken($black,10);
 		}
 		p {
 			font-size: 1.2em;
@@ -394,7 +393,7 @@ h2.headline {
 
 .tagline {
 	@include media(min-width $desktop) {
-		@include pad(3em 0 0);
+		@include pad(4em 0 0);
 	}
 	@include media(max-width $desktop) {
 		@include margin(-2em 0 0);
@@ -403,7 +402,7 @@ h2.headline {
 	h1 {
 		@include pad(0 1em);
 		font-family: $font-accent;
-		font-size: 2.8em;
+		font-size: 2.2em;
 		color: $white;
 	}
 }
@@ -581,6 +580,27 @@ a .listing-info {
 			@include margin(null null 2em);
 			@include pad(2em 2em 1.6em);
 			@extend .card;
+			.stories-source {
+				@include margin(1.4em 0 0);
+				font-family: $font-accent;
+			}
+			.stories-quote:before {
+				content: "“";
+				font-family: $font-head;
+				font-size: 3em;
+				position: absolute;
+				top: .3em;
+				left: .3em;
+			}
+			.stories-source,
+			.stories-quote:before{
+				color: $purple;
+			}
+			blockquote,
+			cite {
+				@include margin(0);
+				@include pad(0);
+			}
 		}
 	}
 	.bg-photo {

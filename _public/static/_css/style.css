@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -611,7 +612,8 @@ input[type="submit"] {
   border-radius: .2em; }
 
 .outer {
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   @media screen and (min-width: 768px) {
     .outer {
       padding: 4em 0 6em; } }
@@ -662,11 +664,11 @@ h1.headline {
   margin-top: 0.5em;
   margin-right: 0;
   margin-left: 0;
-  font-family: "Lora", serif;
+  font-family: "Cutive", sans-serif;
   font-size: 2.6em; }
 
 h2.headline {
-  font-family: "Lora", serif;
+  font-family: "Cutive", sans-serif;
   font-size: 2em; }
 
 .large {
@@ -763,43 +765,22 @@ h2.headline {
     .hero-outer {
       display: none; } }
 
-.hero-photo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden; }
-  .hero-photo img {
-    position: absolute;
-    height: auto;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    min-width: 50%;
-    min-height: 100%; }
-
 .bg-photo {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+  top: -50%;
+  left: -50%;
+  height: 200%;
+  width: 200%;
   overflow: hidden; }
   .bg-photo img {
     position: absolute;
-    height: auto;
-    width: 100%;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     margin: auto;
     min-width: 50%;
-    min-height: 100%; }
+    min-height: 50%; }
 
 .nav-outer {
   background-color: #a93f3f;
@@ -897,9 +878,8 @@ h2.headline {
       width: 100%; } }
   .biz-card-info .biz-card-info-title h1 {
     margin: 0;
-    font-family: "Lora", serif;
-    font-size: 2em;
-    color: #292929; }
+    font-family: "Cutive", sans-serif;
+    font-size: 1.2em; }
   .biz-card-info .biz-card-info-title p {
     font-size: 1.2em; }
   .biz-card-info p {
@@ -973,7 +953,7 @@ p.card-link-phone a:before {
 
 @media screen and (min-width: 1100px) {
   .tagline {
-    padding: 3em 0 0; } }
+    padding: 4em 0 0; } }
 
 @media screen and (max-width: 1100px) {
   .tagline {
@@ -982,8 +962,8 @@ p.card-link-phone a:before {
 
 .tagline h1 {
   padding: 0 1em;
-  font-family: "Courgette", cursive;
-  font-size: 2.8em;
+  font-family: "Homemade Apple", cursive;
+  font-size: 2.2em;
   color: #fff; }
 
 .nav-list {
@@ -1100,6 +1080,23 @@ a .listing-info .listing-details {
   .stories .blocks li {
     margin-bottom: 2em;
     padding: 2em 2em 1.6em; }
+    .stories .blocks li .stories-source {
+      margin: 1.4em 0 0;
+      font-family: "Homemade Apple", cursive; }
+    .stories .blocks li .stories-quote:before {
+      content: "“";
+      font-family: "Cutive", sans-serif;
+      font-size: 3em;
+      position: absolute;
+      top: .3em;
+      left: .3em; }
+    .stories .blocks li .stories-source,
+    .stories .blocks li .stories-quote:before {
+      color: #44284c; }
+    .stories .blocks li blockquote,
+    .stories .blocks li cite {
+      margin: 0;
+      padding: 0; }
   .stories .bg-photo {
     opacity: .5; }
 
