@@ -93,12 +93,12 @@ input[type="submit"] {
 h1.headline {
 	@include margin(.5em 0 null);
 	font-family: $font-head;
-	font-size: 2.6em;
+	font-size: 2.2em;
 }
 
 h2.headline {
 	font-family: $font-head;
-	font-size: 2em;
+	font-size: 1.6em;
 }
 
 .large {
@@ -417,7 +417,7 @@ h2.headline {
 			font-weight: 600;
 			text-transform: uppercase;
 			letter-spacing: .1em;
-			color: $cherry-light;
+			color: lighten($orange,10);
 			&:hover {
 				color: $white;
 			}
@@ -436,10 +436,10 @@ h2.headline {
 .overview {
 	background-color: $white;
 	.svg {
-		fill: lighten($purple,10);
+		fill: $purple;
 	}
 	.headline {
-		color: $purple;
+		color: lighten($purple,10);
 	}
 	p {
 		color: shade(darken($tan,10),20);
@@ -450,11 +450,11 @@ h2.headline {
 // ============================================================
 
 .overview-buckets {
-	background-color: $yellow;
+	background-color: $orange;
 	background: linear-gradient(160deg,
-							adjust-hue($yellow, -5deg) 0%,
-							$yellow 50%,
-							adjust-hue($yellow, 5deg)) 100%;
+							adjust-hue($orange, -10deg) 0%,
+							$orange 50%,
+							adjust-hue($orange, 10deg)) 100%;
 	.svg {
 		fill: darken($red,10);
 	}
@@ -467,11 +467,11 @@ h2.headline {
 // ============================================================
 
 .listings {
-	background-color: $purple;
+	background-color: darken($purple,10);
 	background: linear-gradient(160deg,
-							adjust-hue($purple, -20deg) 0%,
-							$purple 50%,
-							adjust-hue($purple, 20deg)) 100%;
+							adjust-hue(darken($purple,10), -20deg) 0%,
+							darken($purple,10) 50%,
+							adjust-hue(darken($purple,10), 20deg)) 100%;
 	color: $black;
 	.headline {
 		color: $white;
@@ -488,7 +488,7 @@ h2.headline {
 		}
 	}
 	button {
-		color: $cherry-light;
+		color: lighten($orange,10);
 		background-color: $red;
 		&:hover {
 			color: $white;
@@ -547,7 +547,7 @@ a .listing-info {
 		color: $tan;
 	}
 	button {
-		color: $cherry-light;
+		color: lighten($orange,10);
 		background-color: $red;
 		&:hover {
 			color: $white;
@@ -568,7 +568,7 @@ a .listing-info {
 		color: $tan;
 	}
 	button {
-		color: $cherry-light;
+		color: lighten($orange,10);
 		background-color: $red;
 		&:hover {
 			color: $white;
@@ -679,9 +679,9 @@ a .listing-info {
 				input {
 					font-size: 1.6em;
 					color: $red;
-					background-color: $yellow;
+					background-color: $orange;
 					&:hover {
-						background-color: lighten($yellow,10);
+						background-color: lighten($orange,10);
 					}
 				}
 			}
