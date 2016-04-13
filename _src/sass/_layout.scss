@@ -1,13 +1,13 @@
 // Native
 // ============================================================
 
-* {
-	transition: all .2s ease-in-out;
+*,
+a {
+	transition: all .15s ease-in-out;
 }
 
 body {
 	color: $black;
-	background-color: $tan;
 }
 
 body,
@@ -27,6 +27,10 @@ a {
 	&:focus {
 		outline: none;
 	}
+}
+
+p {
+	font-size: 1.2em;
 }
 
 button,
@@ -52,6 +56,8 @@ input[type="submit"] {
 }
 .inner {
 	@include outer-container;
+	position: relative;
+	z-index: 1;
 	@include media(max-width $tablet min-width $mobile) {
 		@include fill-parent;
 		@include pad(null 2em);
@@ -59,8 +65,6 @@ input[type="submit"] {
 	@include media(max-width $mobile) {
 		@include pad(null 1em);
 	}
-	position: relative;
-	z-index: 1;
 	button {
 		@include margin(2em 0 0);
 	}
@@ -93,12 +97,12 @@ input[type="submit"] {
 h1.headline {
 	@include margin(.5em 0 null);
 	font-family: $font-head;
-	font-size: 2.2em;
+	font-size: 2.4em;
 }
 
 h2.headline {
 	font-family: $font-head;
-	font-size: 1.6em;
+	font-size: 2em;
 }
 
 .large {
@@ -172,42 +176,6 @@ h2.headline {
 	}
 }
 
-// Hero block
-// ============================================================
-
-.hero-outer {
-	position: relative;
-	overflow: hidden;
-	@include media(min-width $tablet) {
-		height: 50vh;
-	}
-	@include media(max-width $tablet) {
-		height: 20vh;
-	}
-	@include media(max-width $tablet) {
-		display: none;
-	}
-}
-
-// .hero-photo {
-// 	position: absolute;
-//   top: 0;
-//   left: 0;
-//   @include size(100%);
-// 	overflow: hidden;
-// 	img {
-// 		position: absolute;
-// 		@include size(100% auto);
-//     top: 0;
-//     left: 0;
-//     right: 0;
-//     bottom: 0;
-//     margin: auto;
-//     min-width: 50%;
-//     min-height: 100%;
-// 	}
-// }
-
 .bg-photo {
 	position: absolute;
   top: -50%;
@@ -226,6 +194,30 @@ h2.headline {
 	}
 }
 
+// Hero block
+// ============================================================
+
+.hero {
+	.inner {
+		@include media(min-width $tablet) {
+			@include pad(4em 0);
+		}
+		text-align: center;
+		.hero-tagline {
+			@include margin(0);
+			font-family: $font-accent;
+			font-size: 2.6em;
+			line-height: 2em;
+			color: $white;
+			@include media(min-width $tablet){
+				@include span-columns(6);
+				@include shift(6);
+				@include omega;
+			}
+		}
+	}
+}
+
 // Navigation block
 // ============================================================
 
@@ -234,22 +226,21 @@ h2.headline {
 	background: linear-gradient(160deg,
 							adjust-hue($red, -10deg) 0%,
 							$red 50%,
-							adjust-hue($red, 10deg)) 100%;
-	// box-shadow: 0 .3em 0 rgba(0,0,0,.1) inset,
-	// 						0 -.3em 0 rgba(0,0,0,.1) inset;
+							adjust-hue($red, 10deg) 100%);
 }
 
 .nav-inner {
 	@include outer-container;
 	text-align: center;
+	position: relative;
 }
 
 .biz-card {
 	@extend .card;
-
 	@include media(min-width $tablet) {
-		position: relative;
-		top: -4em;
+		position: absolute;
+		bottom: 2em;
+		z-index: 10;
 	}
 	@include media(min-width $desktop) {
 		@include span-columns(6);
@@ -306,8 +297,7 @@ h2.headline {
 		h1 {
 			@include margin(0);
 			font-family: $font-head;
-			font-size: 1.2em;
-			// color: darken($black,10);
+			font-size: 1.6em;
 		}
 		p {
 			font-size: 1.2em;
@@ -381,34 +371,16 @@ h2.headline {
 // Navigation
 // ===========================
 
-.nav-wrap {
+.nav-list {
+	@include margin(2em null);
 	@include media(min-width $desktop) {
 		@include span-columns(6);
+		@include shift(6);
 		@include omega;
 	}
 	@include media(max-width $desktop) {
 		@include fill-parent;
 	}
-}
-
-.tagline {
-	@include media(min-width $desktop) {
-		@include pad(4em 0 0);
-	}
-	@include media(max-width $desktop) {
-		@include margin(-2em 0 0);
-		@include pad(0 0 1em);
-	}
-	h1 {
-		@include pad(0 1em);
-		font-family: $font-accent;
-		font-size: 2.2em;
-		color: $white;
-	}
-}
-
-.nav-list {
-	@include margin(null null 4em);
 	li {
 		display: inline-block;
 		a {
@@ -418,8 +390,11 @@ h2.headline {
 			text-transform: uppercase;
 			letter-spacing: .1em;
 			color: lighten($orange,10);
+			border-radius: .2em;
+			background-color: rgba(0,0,0,0);
 			&:hover {
 				color: $white;
+				background-color: lighten($red,10);
 			}
 		}
 	}
@@ -435,6 +410,9 @@ h2.headline {
 
 .overview {
 	background-color: $white;
+	background: linear-gradient(160deg,
+							$white 50%,
+							lighten($tan,10) 100%);
 	.svg {
 		fill: $purple;
 	}
@@ -442,7 +420,7 @@ h2.headline {
 		color: lighten($purple,10);
 	}
 	p {
-		color: shade(darken($tan,10),20);
+		color: darken($purple,10);
 	}
 }
 
@@ -454,12 +432,15 @@ h2.headline {
 	background: linear-gradient(160deg,
 							adjust-hue($orange, -10deg) 0%,
 							$orange 50%,
-							adjust-hue($orange, 10deg)) 100%;
+							adjust-hue($orange, 10deg) 100%);
 	.svg {
 		fill: darken($red,10);
 	}
 	.headline {
 		color: $red;
+	}
+	p {
+		color: shade($orange,40);
 	}
 }
 
@@ -471,7 +452,7 @@ h2.headline {
 	background: linear-gradient(160deg,
 							adjust-hue(darken($purple,10), -20deg) 0%,
 							darken($purple,10) 50%,
-							adjust-hue(darken($purple,10), 20deg)) 100%;
+							adjust-hue(darken($purple,10), 20deg) 100%);
 	color: $black;
 	.headline {
 		color: $white;
@@ -539,7 +520,7 @@ a .listing-info {
 	background: linear-gradient(160deg,
 							adjust-hue($purple, -20deg) 0%,
 							$purple 50%,
-							adjust-hue($purple, 20deg)) 100%;
+							adjust-hue($purple, 20deg) 100%);
 	.headline {
 		color: $white;
 	}
@@ -553,6 +534,9 @@ a .listing-info {
 			color: $white;
 			background-color: lighten($red,10);
 		}
+	}
+	.bg-photo {
+		opacity: .1;
 	}
 }
 
@@ -560,41 +544,32 @@ a .listing-info {
 // ============================================================
 
 .stories {
-	background-color: $cherry;
+	background-color: shade($tan,30);
 	.headline {
 		color: $white;
 	}
 	.large {
 		color: $tan;
 	}
-	button {
-		color: lighten($orange,10);
-		background-color: $red;
-		&:hover {
-			color: $white;
-			background-color: lighten($red,10);
-		}
-	}
-	.blocks {
-		li {
-			@include margin(null null 2em);
+	.blocks-stories {
+		.block-story {
+			@include margin(1.6em);
 			@include pad(2em 2em 1.6em);
 			@extend .card;
-			.stories-source {
+			.story-source {
 				@include margin(1.4em 0 0);
 				font-family: $font-accent;
-			}
-			.stories-quote:before {
-				content: "“";
-				font-family: $font-head;
-				font-size: 3em;
-				position: absolute;
-				top: .3em;
-				left: .3em;
-			}
-			.stories-source,
-			.stories-quote:before{
+				font-size: 1.2em;
 				color: $purple;
+			}
+			.story-quote:before {
+				content: "“";
+				font-family: georgia, serif;
+				font-size: 3em;
+				color: shade($tan,5);
+				position: absolute;
+				top: .1em;
+				left: .3em;
 			}
 			blockquote,
 			cite {
@@ -639,7 +614,7 @@ a .listing-info {
 	background: linear-gradient(160deg,
 							adjust-hue($red, -10deg) 0%,
 							$red 50%,
-							adjust-hue($red, 10deg)) 100%;
+							adjust-hue($red, 10deg) 100%);
 	.headline {
 		color: $white;
 	}
@@ -655,6 +630,7 @@ a .listing-info {
 			label {
 				@include fill-parent;
 				@include pad(.4em .8em);
+				font-family: $font-body;
 				font-size: 1.4em;
 				color: $purple;
 				background-color: $white;
@@ -669,7 +645,7 @@ a .listing-info {
 				}
 			}
 			select {
-				@extend label;
+				-webkit-appearance: none;
 			}
 			&.contact-submit {
 				@include fill-parent;
@@ -705,7 +681,50 @@ a .listing-info {
 // ============================================================
 
 .footer {
-	height: 10em;
-	background-color: darken($red,10);
-	color: $tan;
+	background-color: darken($tan,20);
+	.inner {
+		color: $white;
+		.footer-message {
+			@include span-columns(4);
+			@include pad(1em 0 0);
+			h1 {
+				font-family: $font-accent;
+				font-size: 1.6em;
+				line-height: 2em;
+				color: $white;
+			}
+		}
+		.footer-logos {
+			@include span-columns(4);
+			@extend .center;
+			li {
+				@include margin(0 2em);
+				display: inline-block;
+				@extend .center;
+				a {
+					display: block;
+					color: $white;
+					.svg {
+						@include size(4em);
+						fill: $white;
+					}
+					&:hover {
+						opacity: .8;
+					}
+				}
+			}
+		}
+		.footer-copyright {
+			@include span-columns(4);
+			@include omega;
+			@include pad(2em 0 0);
+			text-align: right;
+		}
+	}
+	.bg-photo {
+		opacity: .6;
+	}
 }
+
+
+

@@ -401,18 +401,17 @@ fieldset {
 
 input,
 label,
-.contact .blocks > li select,
 select {
   display: block;
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 1em; }
 
-label, .contact .blocks > li select {
+label {
   font-weight: 600;
   margin-bottom: 0.375em; }
-  label.required::after, .contact .blocks > li select.required::after {
+  label.required::after {
     content: "*"; }
-  label abbr, .contact .blocks > li select abbr {
+  label abbr {
     display: none; }
 
 input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], textarea,
@@ -573,16 +572,15 @@ picture {
 .margin-big-right {
   margin-right: 2em; }
 
-* {
-  transition: all .2s ease-in-out; }
+*,
+a {
+  transition: all .15s ease-in-out; }
 
 body {
-  color: #424243;
-  background-color: #D8D2C5; }
+  color: #424243; }
 
 body,
 label,
-.contact .blocks > li select,
 input,
 input[type="text"],
 textarea {
@@ -595,6 +593,9 @@ a {
     color: #8b3a51; }
   a:focus {
     outline: none; }
+
+p {
+  font-size: 1.2em; }
 
 button,
 input[type="submit"] {
@@ -642,7 +643,7 @@ input[type="submit"] {
   .pad-x, .two-column li, .three-column {
     padding: 0 4em; } }
 
-.center, .contact .blocks > li.contact-submit {
+.center, .contact .blocks > li.contact-submit, .footer .inner .footer-logos, .footer .inner .footer-logos li {
   text-align: center; }
 
 .margin-top {
@@ -656,19 +657,19 @@ h1.headline {
   margin-top: 0.5em;
   margin-right: 0;
   margin-left: 0;
-  font-family: "Cutive", sans-serif;
-  font-size: 2.2em; }
+  font-family: "Homemade Apple", cursive;
+  font-size: 2.4em; }
 
 h2.headline {
-  font-family: "Cutive", sans-serif;
-  font-size: 1.6em; }
+  font-family: "Homemade Apple", cursive;
+  font-size: 2em; }
 
 .large {
   font-size: 1.4em;
   line-height: 1.4em;
   font-weight: 100; }
 
-.card, .biz-card, .listings .blocks > li, .stories .blocks li {
+.card, .biz-card, .listings .blocks > li, .stories .blocks-stories .block-story {
   padding: 1em;
   background-color: #fff;
   background: linear-gradient(to bottom, #fff, #f2f2f2);
@@ -676,14 +677,14 @@ h2.headline {
   box-shadow: 0 0.2em 2em rgba(0, 0, 0, 0.2), 0 0 0 0.4em #fcfcfc inset, 0 0 0 0.5em #e6e6e6 inset;
   border-radius: .2em; }
   @media screen and (min-width: 768px) {
-    .card, .biz-card, .listings .blocks > li, .stories .blocks li {
+    .card, .biz-card, .listings .blocks > li, .stories .blocks-stories .block-story {
       transform: rotate(-3deg); }
-      .card:hover, .biz-card:hover, .listings .blocks > li:hover, .stories .blocks li:hover {
+      .card:hover, .biz-card:hover, .listings .blocks > li:hover, .stories .blocks-stories .block-story:hover {
         transform: rotate(0deg); } }
   @media screen and (max-width: 768px) {
-    .card, .biz-card, .listings .blocks > li, .stories .blocks li {
+    .card, .biz-card, .listings .blocks > li, .stories .blocks-stories .block-story {
       transform: rotate(-1deg); }
-      .card:hover, .biz-card:hover, .listings .blocks > li:hover, .stories .blocks li:hover {
+      .card:hover, .biz-card:hover, .listings .blocks > li:hover, .stories .blocks-stories .block-story:hover {
         transform: rotate(0deg); } }
 
 @media screen and (min-width: 1100px) {
@@ -744,19 +745,6 @@ h2.headline {
   .three-column li {
     width: 100%; } }
 
-.hero-outer {
-  position: relative;
-  overflow: hidden; }
-  @media screen and (min-width: 768px) {
-    .hero-outer {
-      height: 50vh; } }
-  @media screen and (max-width: 768px) {
-    .hero-outer {
-      height: 20vh; } }
-  @media screen and (max-width: 768px) {
-    .hero-outer {
-      display: none; } }
-
 .bg-photo {
   position: absolute;
   top: -50%;
@@ -774,15 +762,38 @@ h2.headline {
     min-width: 50%;
     min-height: 50%; }
 
+.hero .inner {
+  text-align: center; }
+  @media screen and (min-width: 768px) {
+    .hero .inner {
+      padding: 4em 0; } }
+  .hero .inner .hero-tagline {
+    margin: 0;
+    font-family: "Homemade Apple", cursive;
+    font-size: 2.6em;
+    line-height: 2em;
+    color: #fff; }
+    @media screen and (min-width: 768px) {
+      .hero .inner .hero-tagline {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 48.82117%;
+        margin-left: 51.17883%;
+        margin-right: 0; }
+        .hero .inner .hero-tagline:last-child {
+          margin-right: 0; } }
+
 .nav-outer {
   background-color: #a93f3f;
-  background: linear-gradient(160deg, #a93f51 0%, #a93f3f 50%, #a9513f) 100%; }
+  background: linear-gradient(160deg, #a93f51 0%, #a93f3f 50%, #a9513f 100%); }
 
 .nav-inner {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  text-align: center; }
+  text-align: center;
+  position: relative; }
   .nav-inner::after {
     clear: both;
     content: "";
@@ -790,8 +801,9 @@ h2.headline {
 
 @media screen and (min-width: 768px) {
   .biz-card {
-    position: relative;
-    top: -4em; } }
+    position: absolute;
+    bottom: 2em;
+    z-index: 10; } }
 
 @media screen and (min-width: 1100px) {
   .biz-card {
@@ -870,8 +882,8 @@ h2.headline {
       width: 100%; } }
   .biz-card-info .biz-card-info-title h1 {
     margin: 0;
-    font-family: "Cutive", sans-serif;
-    font-size: 1.2em; }
+    font-family: "Homemade Apple", cursive;
+    font-size: 1.6em; }
   .biz-card-info .biz-card-info-title p {
     font-size: 1.2em; }
   .biz-card-info p {
@@ -929,37 +941,22 @@ p.card-link-email a:before {
 p.card-link-phone a:before {
   content: url("../_img/icon-phone.svg"); }
 
-@media screen and (min-width: 1100px) {
-  .nav-wrap {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%;
-    margin-right: 0; }
-    .nav-wrap:last-child {
-      margin-right: 0; } }
-
-@media screen and (max-width: 1100px) {
-  .nav-wrap {
-    width: 100%; } }
-
-@media screen and (min-width: 1100px) {
-  .tagline {
-    padding: 4em 0 0; } }
-
-@media screen and (max-width: 1100px) {
-  .tagline {
-    margin: -2em 0 0;
-    padding: 0 0 1em; } }
-
-.tagline h1 {
-  padding: 0 1em;
-  font-family: "Homemade Apple", cursive;
-  font-size: 2.2em;
-  color: #fff; }
-
 .nav-list {
-  margin-bottom: 4em; }
+  margin-top: 2em;
+  margin-bottom: 2em; }
+  @media screen and (min-width: 1100px) {
+    .nav-list {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%;
+      margin-left: 51.17883%;
+      margin-right: 0; }
+      .nav-list:last-child {
+        margin-right: 0; } }
+  @media screen and (max-width: 1100px) {
+    .nav-list {
+      width: 100%; } }
   .nav-list li {
     display: inline-block; }
     .nav-list li a {
@@ -968,34 +965,40 @@ p.card-link-phone a:before {
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: .1em;
-      color: #fec49e; }
+      color: #fec49e;
+      border-radius: .2em;
+      background-color: transparent; }
       .nav-list li a:hover {
-        color: #fff; }
+        color: #fff;
+        background-color: #c25959; }
 
 .nav-list .selected a {
   color: #fff;
   background-color: #8b3a51; }
 
 .overview {
-  background-color: #fff; }
+  background-color: #fff;
+  background: linear-gradient(160deg, #fff 50%, #edeae3 100%); }
   .overview .svg {
     fill: #53315c; }
   .overview .headline {
     color: #71427e; }
   .overview p {
-    color: #9c9585; }
+    color: #351f3b; }
 
 .overview-buckets {
   background-color: #FDA56C;
-  background: linear-gradient(160deg, #fd8d6c 0%, #FDA56C 50%, #fdbd6c) 100%; }
+  background: linear-gradient(160deg, #fd8d6c 0%, #FDA56C 50%, #fdbd6c 100%); }
   .overview-buckets .svg {
     fill: #843131; }
   .overview-buckets .headline {
     color: #a93f3f; }
+  .overview-buckets p {
+    color: #986341; }
 
 .listings {
   background-color: #351f3b;
-  background: linear-gradient(160deg, #2c1f3b 0%, #351f3b 50%, #3b1f38) 100%;
+  background: linear-gradient(160deg, #2c1f3b 0%, #351f3b 50%, #3b1f38 100%);
   color: #424243; }
   .listings .headline {
     color: #fff; }
@@ -1045,7 +1048,7 @@ a .listing-info .listing-details {
 
 .history {
   background-color: #53315c;
-  background: linear-gradient(160deg, #44315c 0%, #53315c 50%, #5c3157) 100%; }
+  background: linear-gradient(160deg, #44315c 0%, #53315c 50%, #5c3157 100%); }
   .history .headline {
     color: #fff; }
   .history .large {
@@ -1056,37 +1059,33 @@ a .listing-info .listing-details {
     .history button:hover {
       color: #fff;
       background-color: #c25959; }
+  .history .bg-photo {
+    opacity: .1; }
 
 .stories {
-  background-color: #672B3C; }
+  background-color: #97938a; }
   .stories .headline {
     color: #fff; }
   .stories .large {
     color: #D8D2C5; }
-  .stories button {
-    color: #fec49e;
-    background-color: #a93f3f; }
-    .stories button:hover {
-      color: #fff;
-      background-color: #c25959; }
-  .stories .blocks li {
-    margin-bottom: 2em;
+  .stories .blocks-stories .block-story {
+    margin: 1.6em;
     padding: 2em 2em 1.6em; }
-    .stories .blocks li .stories-source {
+    .stories .blocks-stories .block-story .story-source {
       margin: 1.4em 0 0;
-      font-family: "Homemade Apple", cursive; }
-    .stories .blocks li .stories-quote:before {
-      content: "“";
-      font-family: "Cutive", sans-serif;
-      font-size: 3em;
-      position: absolute;
-      top: .3em;
-      left: .3em; }
-    .stories .blocks li .stories-source,
-    .stories .blocks li .stories-quote:before {
+      font-family: "Homemade Apple", cursive;
+      font-size: 1.2em;
       color: #53315c; }
-    .stories .blocks li blockquote,
-    .stories .blocks li cite {
+    .stories .blocks-stories .block-story .story-quote:before {
+      content: "“";
+      font-family: georgia, serif;
+      font-size: 3em;
+      color: #cdc8bb;
+      position: absolute;
+      top: .1em;
+      left: .3em; }
+    .stories .blocks-stories .block-story blockquote,
+    .stories .blocks-stories .block-story cite {
       margin: 0;
       padding: 0; }
   .stories .bg-photo {
@@ -1100,7 +1099,7 @@ a .listing-info .listing-details {
 
 .contact {
   background-color: #a93f3f;
-  background: linear-gradient(160deg, #a93f51 0%, #a93f3f 50%, #a9513f) 100%; }
+  background: linear-gradient(160deg, #a93f51 0%, #a93f3f 50%, #a9513f 100%); }
   @media screen and (min-width: 1100px) {
     .contact .large {
       float: left;
@@ -1121,7 +1120,7 @@ a .listing-info .listing-details {
         margin-right: 0; } }
   .contact .headline {
     color: #fff; }
-  .contact p, .contact label, .contact .blocks > li select {
+  .contact p, .contact label {
     color: #D8D2C5; }
   .contact .blocks > li {
     margin-right: 0;
@@ -1130,9 +1129,10 @@ a .listing-info .listing-details {
     .contact .blocks > li input[type="text"],
     .contact .blocks > li select,
     .contact .blocks > li textarea,
-    .contact .blocks > li label, .contact .blocks > li select {
+    .contact .blocks > li label {
       width: 100%;
       padding: 0.4em 0.8em;
+      font-family: "Lato", sans-serif;
       font-size: 1.4em;
       color: #53315c;
       background-color: #fff;
@@ -1141,15 +1141,17 @@ a .listing-info .listing-details {
       .contact .blocks > li input[type="text"] input[type="radio"],
       .contact .blocks > li select input[type="radio"],
       .contact .blocks > li textarea input[type="radio"],
-      .contact .blocks > li label input[type="radio"], .contact .blocks > li select input[type="radio"] {
+      .contact .blocks > li label input[type="radio"] {
         margin-right: 0.5em;
         margin-left: 0; }
       .contact .blocks > li input[type="text"]::-webkit-input-placeholder,
       .contact .blocks > li select::-webkit-input-placeholder,
       .contact .blocks > li textarea::-webkit-input-placeholder,
-      .contact .blocks > li label::-webkit-input-placeholder, .contact .blocks > li select::-webkit-input-placeholder {
+      .contact .blocks > li label::-webkit-input-placeholder {
         color: #876e8d;
         opacity: .5; }
+    .contact .blocks > li select {
+      -webkit-appearance: none; }
     .contact .blocks > li.contact-submit {
       width: 100%;
       margin-top: 4em;
@@ -1179,10 +1181,54 @@ a .listing-info .listing-details {
       clear: both;
       content: "";
       display: table; }
-    .contact-buy_or_sell .three-column li label:hover, .contact-buy_or_sell .three-column .contact .blocks > li select:hover, .contact .contact-buy_or_sell .three-column .blocks > li select:hover {
+    .contact-buy_or_sell .three-column li label:hover {
       cursor: pointer; }
 
 .footer {
-  height: 10em;
-  background-color: #843131;
-  color: #D8D2C5; }
+  background-color: #afa388; }
+  .footer .inner {
+    color: #fff; }
+    .footer .inner .footer-message {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      padding: 1em 0 0; }
+      .footer .inner .footer-message:last-child {
+        margin-right: 0; }
+      .footer .inner .footer-message h1 {
+        font-family: "Homemade Apple", cursive;
+        font-size: 1.6em;
+        line-height: 2em;
+        color: #fff; }
+    .footer .inner .footer-logos {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%; }
+      .footer .inner .footer-logos:last-child {
+        margin-right: 0; }
+      .footer .inner .footer-logos li {
+        margin: 0 2em;
+        display: inline-block; }
+        .footer .inner .footer-logos li a {
+          display: block;
+          color: #fff; }
+          .footer .inner .footer-logos li a .svg {
+            height: 4em;
+            width: 4em;
+            fill: #fff; }
+          .footer .inner .footer-logos li a:hover {
+            opacity: .8; }
+    .footer .inner .footer-copyright {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      margin-right: 0;
+      padding: 2em 0 0;
+      text-align: right; }
+      .footer .inner .footer-copyright:last-child {
+        margin-right: 0; }
+  .footer .bg-photo {
+    opacity: .6; }
