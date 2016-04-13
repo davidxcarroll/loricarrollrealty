@@ -31,16 +31,14 @@ $(document).ready(function(){
 
 // STICKY NAV - DEFAULT
 
-$(window).on('scroll', function() {
-  scrollPosition = $(this).scrollTop();
-  if (scrollPosition >= $('#hero').height()) {
-    $("#navigation-default").addClass("head-collapsed head-fixed").removeClass("head-default");
-    $(".nav-cta").removeClass("hide");
-  } else {
-    $("#navigation-default").addClass("head-default").removeClass("head-collapsed head-fixed");
-    $(".nav-cta").addClass("hide");
-  }
-});
+// $(window).on('scroll', function() {
+//   scrollPosition = $(this).scrollTop();
+//   if (scrollPosition >= $('#hero').height()) {
+//     $("#nav").addClass("nav-fixed").removeClass("nav-static");
+//   } else {
+//     $("#nav").addClass("nav-static").removeClass("nav-fixed");
+//   }
+// });
 
 // ================================================================================
 
