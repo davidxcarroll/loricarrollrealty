@@ -122,16 +122,14 @@ h2.headline {
 	border-radius: .2em;
 	@include media(min-width $tablet){
 		transform: rotate(-3deg);
-		&:hover {
-			transform: rotate(0deg);
-		}
 	}
 	@include media(max-width $tablet){
 		transform: rotate(-1deg);
-		&:hover {
-			transform: rotate(0deg);
-		}
 	}
+}
+
+.card-hover:hover {
+	transform: rotate(0deg);
 }
 
 // Column structure
@@ -191,6 +189,7 @@ h2.headline {
     margin: auto;
     min-width: 50%;
     min-height: 50%;
+    object-fit: cover;
 	}
 }
 
@@ -209,7 +208,7 @@ h2.headline {
 			font-size: 2.6em;
 			line-height: 2em;
 			color: $white;
-			@include media(min-width $tablet){
+			@include media(min-width $desktop){
 				@include span-columns(6);
 				@include shift(6);
 				@include omega;
@@ -237,13 +236,12 @@ h2.headline {
 
 .biz-card {
 	@extend .card;
-	@include media(min-width $tablet) {
+	@extend .card-hover;
+	@include media(min-width $desktop) {
+		@include span-columns(6);
 		position: absolute;
 		bottom: 2em;
 		z-index: 10;
-	}
-	@include media(min-width $desktop) {
-		@include span-columns(6);
 	}
 	@include media(max-width $desktop min-width $tablet) {
 		min-width: 35em;
@@ -372,7 +370,7 @@ h2.headline {
 // ===========================
 
 .nav-list {
-	@include margin(2em null);
+	@include pad(2em null);
 	@include media(min-width $desktop) {
 		@include span-columns(6);
 		@include shift(6);
@@ -442,6 +440,14 @@ h2.headline {
 	p {
 		color: shade($orange,40);
 	}
+	li {
+		@include media(max-width $desktop) {
+			@include margin(null null 4em);
+			&:last-child {
+				@include margin(0 null);
+			}
+		}
+	}
 }
 
 // Listings block
@@ -465,6 +471,7 @@ h2.headline {
 			@include margin(null null 2em);
 			@include pad(2em 2em 1.6em);
 			@extend .card;
+			@extend .card-hover;
 			@include pad(1em);
 		}
 	}
@@ -687,8 +694,11 @@ a .listing-info {
 	background-color: darken($tan,20);
 	.inner {
 		color: $white;
+		@extend .center;
 		.footer-message {
-			@include span-columns(4);
+			@include media(min-width $tablet) {
+				@include span-columns(4);
+			}
 			@include pad(1em 0 0);
 			h1 {
 				font-family: $font-accent;
@@ -698,8 +708,10 @@ a .listing-info {
 			}
 		}
 		.footer-logos {
-			@include span-columns(4);
-			@extend .center;
+			@include media(min-width $tablet) {
+				@include span-columns(4);
+			}
+			// @extend .center;
 			li {
 				@include margin(0 2em);
 				display: inline-block;
@@ -718,10 +730,12 @@ a .listing-info {
 			}
 		}
 		.footer-copyright {
-			@include span-columns(4);
-			@include omega;
+			@include media(min-width $tablet) {
+				@include span-columns(4);
+				@include omega;
+				text-align: right;
+			}
 			@include pad(2em 0 0);
-			text-align: right;
 		}
 	}
 	.bg-photo {
