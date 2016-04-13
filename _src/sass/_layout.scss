@@ -603,6 +603,7 @@ a .listing-info {
 // ============================================================
 
 .contact {
+	background-color: $red;
 	.large {
 		@include media(min-width $desktop) {
 			@include span-columns(8);
@@ -615,11 +616,6 @@ a .listing-info {
 			@include shift(3);
 		}
 	}
-	background-color: $red;
-	background: linear-gradient(160deg,
-							adjust-hue($red, -10deg) 0%,
-							$red 50%,
-							adjust-hue($red, 10deg) 100%);
 	.headline {
 		color: $white;
 	}
@@ -668,6 +664,9 @@ a .listing-info {
 			}
 		}
 	}
+	.bg-photo {
+		opacity: .4;
+	}
 }
 
 .contact-buy_or_sell {
@@ -686,7 +685,7 @@ a .listing-info {
 // ============================================================
 
 .footer {
-	background-color: darken($tan,20);
+	background-color: $cherry;
 	.inner {
 		color: $white;
 		@extend .center;

@@ -1095,8 +1095,7 @@ a .listing-info .listing-details {
     color: #71427e; }
 
 .contact {
-  background-color: #a93f3f;
-  background: linear-gradient(160deg, #a93f51 0%, #a93f3f 50%, #a9513f 100%); }
+  background-color: #a93f3f; }
   @media screen and (min-width: 1100px) {
     .contact .large {
       float: left;
@@ -1159,6 +1158,8 @@ a .listing-info .listing-details {
         background-color: #FDA56C; }
         .contact .blocks > li.contact-submit input:hover {
           background-color: #fec49e; }
+  .contact .bg-photo {
+    opacity: .4; }
 
 .contact-buy_or_sell {
   max-width: 68em;
@@ -1182,7 +1183,7 @@ a .listing-info .listing-details {
       cursor: pointer; }
 
 .footer {
-  background-color: #afa388; }
+  background-color: #672B3C; }
   .footer .inner {
     color: #fff; }
     .footer .inner .footer-message {
