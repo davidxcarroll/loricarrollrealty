@@ -2,7 +2,7 @@
 // SLICK - STORIES
 
 $(document).ready(function(){
-  $('.blocks-stories').slick({
+  $('.blocks-slide').slick({
     infinite: false,
     dots: true,
     speed: 100,
