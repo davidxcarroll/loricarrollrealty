@@ -997,13 +997,13 @@ p.card-link-phone a:before {
     color: #986341; }
 
 .listings {
-  background-color: #351f3b;
-  background: linear-gradient(160deg, #2c1f3b 0%, #351f3b 50%, #3b1f38 100%);
+  background-color: #dfb2bf;
+  background: linear-gradient(160deg, #dfb2ce 0%, #dfb2bf 50%, #dfb4b2 100%);
   color: #424243; }
   .listings .headline {
     color: #fff; }
   .listings .large {
-    color: #D8D2C5; }
+    color: #e0dbd1; }
   .listings .blocks > li {
     margin-bottom: 2em;
     padding: 2em 2em 1.6em;
@@ -1015,7 +1015,7 @@ p.card-link-phone a:before {
       color: #fff;
       background-color: #c25959; }
   .listings .bg-photo {
-    opacity: .2; }
+    opacity: .6; }
 
 .listing-photo img {
   box-shadow: 0 0 0 0.1em #e6e6e6; }
@@ -1084,8 +1084,8 @@ a .listing-info .listing-details {
       font-size: 3em;
       color: #cdc8bb;
       position: absolute;
-      top: .1em;
-      left: .3em; }
+      top: .5em;
+      left: .4em; }
     .stories .blocks-stories .block-story blockquote,
     .stories .blocks-stories .block-story cite {
       margin: 0;

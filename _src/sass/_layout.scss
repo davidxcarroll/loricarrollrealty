@@ -448,17 +448,17 @@ h2.headline {
 // ============================================================
 
 .listings {
-	background-color: darken($purple,10);
+	background-color: $cherry-light;
 	background: linear-gradient(160deg,
-							adjust-hue(darken($purple,10), -20deg) 0%,
-							darken($purple,10) 50%,
-							adjust-hue(darken($purple,10), 20deg) 100%);
+							adjust-hue($cherry-light, -20deg) 0%,
+							$cherry-light 50%,
+							adjust-hue($cherry-light, 20deg) 100%);
 	color: $black;
 	.headline {
 		color: $white;
 	}
 	.large {
-		color: $tan;
+		color: tint($tan,20);
 	}
 	.blocks {
 		> li {
@@ -477,7 +477,7 @@ h2.headline {
 		}
 	}
 	.bg-photo {
-		opacity: .2;
+		opacity: .6;
 	}
 }
 
@@ -571,8 +571,8 @@ a .listing-info {
 				font-size: 3em;
 				color: shade($tan,5);
 				position: absolute;
-				top: .1em;
-				left: .3em;
+				top: .5em;
+				left: .4em;
 			}
 			blockquote,
 			cite {
