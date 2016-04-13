@@ -30,7 +30,7 @@ a {
 }
 
 p {
-	font-size: 1.2em;
+	line-height: 1.6em;
 }
 
 button,
@@ -534,6 +534,9 @@ a .listing-info {
 			color: $white;
 			background-color: lighten($red,10);
 		}
+	}
+	.svg {
+		fill: $orange;
 	}
 	.bg-photo {
 		opacity: .1;

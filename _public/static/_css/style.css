@@ -595,7 +595,7 @@ a {
     outline: none; }
 
 p {
-  font-size: 1.2em; }
+  line-height: 1.6em; }
 
 button,
 input[type="submit"] {
@@ -1059,6 +1059,8 @@ a .listing-info .listing-details {
     .history button:hover {
       color: #fff;
       background-color: #c25959; }
+  .history .svg {
+    fill: #FDA56C; }
   .history .bg-photo {
     opacity: .1; }
 
