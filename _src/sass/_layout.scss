@@ -115,10 +115,11 @@ h2.headline {
 	@include pad(1em);
 	background-color: $white;
 	background: linear-gradient(to bottom, $white, darken($white,5));
-	background-image: url('../_img/bg-texture-lightpaperfibers_@2X.png');
-	box-shadow: 0 .2em 2em rgba(0,0,0,.2),
-	            0 0 0 .4em darken($white,1) inset,
-	            0 0 0 .5em $grey inset;
+	// background-image: url('../_img/bg-texture-lightpaperfibers_@2X.png');
+	// box-shadow:
+	// 						0 .2em 2em rgba(0,0,0,.2),
+	//             0 0 0 .4em darken($white,1) inset,
+	//             0 0 0 .5em $grey inset;
 	border-radius: .2em;
 	@include media(min-width $tablet){
 		transform: rotate(-3deg);
@@ -190,6 +191,18 @@ h2.headline {
     min-width: 50%;
     min-height: 50%;
     object-fit: cover;
+	}
+}
+
+.blocks-slide {
+	.blocks-slide-item {
+		@include margin(1.6em);
+		@include pad(2em 2em 1.6em);
+		@extend .card;
+	}
+	.slick-dots li button:before,
+	.slick-dots li.slick-active button:before {
+		color: $white;
 	}
 }
 
@@ -468,20 +481,12 @@ h2.headline {
 	}
 	.blocks {
 		.blocks-slide-item {
-			@include margin(1.6em);
-			@include pad(2em 2em 1.6em);
-			@extend .card;
-			@extend .card-hover;
 			@include pad(1em);
 		}
 	}
 	.bg-photo {
 		opacity: .6;
 	}
-}
-
-.listing-photo img {
-	box-shadow: 0 0 0 .1em $grey;
 }
 
 .listing-info {
@@ -555,9 +560,6 @@ a .listing-info {
 	}
 	.blocks-slide {
 		.blocks-slide-item {
-			@include margin(1.6em);
-			@include pad(2em 2em 1.6em);
-			@extend .card;
 			.story-source {
 				@include margin(1.4em 0 0);
 				font-family: $font-accent;
@@ -571,7 +573,7 @@ a .listing-info {
 				color: shade($tan,5);
 				position: absolute;
 				top: .5em;
-				left: .4em;
+				left: .3em;
 			}
 			blockquote,
 			cite {
@@ -590,6 +592,7 @@ a .listing-info {
 
 .tools {
 	background-color: $white;
+	background: linear-gradient(to bottom, $white, darken($white,5));
 	color: $black;
 	.headline {
 		color: lighten($purple,10);
