@@ -686,6 +686,10 @@ a .listing-info {
 
 .footer {
 	background-color: $cherry;
+	background: linear-gradient(160deg,
+							adjust-hue($cherry, -10deg) 0%,
+							$cherry 50%,
+							adjust-hue($cherry, 10deg) 100%);
 	.inner {
 		color: $white;
 		@extend .center;

@@ -1183,7 +1183,8 @@ a .listing-info .listing-details {
       cursor: pointer; }
 
 .footer {
-  background-color: #672B3C; }
+  background-color: #672B3C;
+  background: linear-gradient(160deg, #672b46 0%, #672B3C 50%, #672b32 100%); }
   .footer .inner {
     color: #fff; }
     .footer .inner .footer-message {
