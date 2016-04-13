@@ -635,8 +635,8 @@ input[type="submit"] {
     margin: 2em 0 0; }
 
 .icon {
-  height: 5em;
-  width: 5em;
+  height: 3em;
+  width: 3em;
   margin: 0 auto; }
 
 @media screen and (min-width: 768px) {
@@ -992,9 +992,9 @@ p.card-link-phone a:before {
   background-color: #FDA56C;
   background: linear-gradient(160deg, #fd8d6c 0%, #FDA56C 50%, #fdbd6c 100%); }
   .overview-buckets .svg {
-    fill: #843131; }
+    fill: #a93f3f; }
   .overview-buckets .headline {
-    color: #a93f3f; }
+    color: #843131; }
   .overview-buckets p {
     color: #986341; }
   @media screen and (max-width: 1100px) {
@@ -1215,8 +1215,8 @@ a .listing-info .listing-details {
         display: block;
         color: #fff; }
         .footer .inner .footer-logos li a .svg {
-          height: 4em;
-          width: 4em;
+          height: 3em;
+          width: 3em;
           fill: #fff; }
         .footer .inner .footer-logos li a:hover {
           opacity: .8; }
