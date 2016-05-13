@@ -81,6 +81,13 @@ input[type="submit"] {
 	}
 }
 
+.box-shadow {
+	box-shadow:
+		0 .2em 2em rgba(0,0,0,.1),
+	  0 0 0 .4em $white inset,
+	  0 0 0 .5em $grey inset;
+}
+
 .center {
 	text-align: center;
 }
@@ -114,12 +121,9 @@ h2.headline {
 .card {
 	@include pad(1em);
 	background-color: $white;
-	background: linear-gradient(to bottom, $white, darken($white,5));
+	// background: linear-gradient(to bottom, $white, darken($white,5));
 	// background-image: url('../_img/bg-texture-lightpaperfibers_@2X.png');
-	// box-shadow:
-	// 						0 .2em 2em rgba(0,0,0,.2),
-	//             0 0 0 .4em darken($white,1) inset,
-	//             0 0 0 .5em $grey inset;
+	@extend .box-shadow;
 	border-radius: .2em;
 	@include media(min-width $tablet){
 		transform: rotate(-3deg);
@@ -209,37 +213,42 @@ h2.headline {
 // ============================================================
 
 .hero {
-	.inner {
-		position: relative;
-		@include media(min-width $tablet) {
-		}
-		.hero-tagline {
-			@include media(min-width $tablet) {
-				@include margin(3em 0 6em);
-			}
-			@include media(max-width $desktop min-width $tablet) {
-				@include margin(2em 0 6em);
-				@include pad(0 2em);
-			}
-			@include media(max-width $tablet min-width $mobile) {
-				@include margin(1em 0 2em);
-				font-size: 2.2em;
-			}
-			@include media(max-width $mobile min-width $mobile-xs) {
-				@include margin(1em 0 3em);
-				font-size: 1.8em;
-			}
-			@include media(max-width $mobile-xs) {
-				@include margin(1em 0 1em);
-				font-size: 1.4em;
-			}
-			text-align: center;
-			font-family: $font-head;
-			font-size: 2.6em;
-			line-height: 2em;
-			color: $white;
-		}
+	height: 40vh;
+	background-color: shade($tan,30);
+	.bg-photo {
+		opacity: .8;
 	}
+	// .inner {
+	// 	position: relative;
+	// 	@include media(min-width $tablet) {
+	// 	}
+	// 	.hero-tagline {
+	// 		@include media(min-width $tablet) {
+	// 			@include margin(3em 0 6em);
+	// 		}
+	// 		@include media(max-width $desktop min-width $tablet) {
+	// 			@include margin(2em 0 6em);
+	// 			@include pad(0 2em);
+	// 		}
+	// 		@include media(max-width $tablet min-width $mobile) {
+	// 			@include margin(1em 0 2em);
+	// 			font-size: 2.2em;
+	// 		}
+	// 		@include media(max-width $mobile min-width $mobile-xs) {
+	// 			@include margin(1em 0 3em);
+	// 			font-size: 1.8em;
+	// 		}
+	// 		@include media(max-width $mobile-xs) {
+	// 			@include margin(1em 0 1em);
+	// 			font-size: 1.4em;
+	// 		}
+	// 		text-align: center;
+	// 		font-family: $font-head;
+	// 		font-size: 2.6em;
+	// 		line-height: 2em;
+	// 		color: $white;
+	// 	}
+	// }
 }
 
 // Navigation block
@@ -377,37 +386,85 @@ h2.headline {
 	@include media(min-width $tablet) {
 		@include pad(8em 0 6em);
 	}
-	background-color: $orange;
-	background: linear-gradient(160deg,
-							adjust-hue($orange, -10deg) 0%,
-							$orange 50%,
-							adjust-hue($orange, 10deg) 100%);
-	.three-column {
+	// background: linear-gradient(160deg,
+	// 						adjust-hue($orange, -10deg) 0%,
+	// 						$orange 50%,
+	// 						adjust-hue($orange, 10deg) 100%);
+	background-color: lighten($tan,15);
+	.overview-summary {
 		clear: both;
-		li {
-			@include media(min-width $tablet max-width $desktop) {
-				@include size(30em auto);
-				@include margin(0 auto);
+		text-align: center;
+		@include media(min-width $tablet) {
+			@include span-columns(8);
+			@include shift(2);
+			// @include margin(null null 4em);
+		}
+		.overview-tagline {
+			@include media(min-width $tablet) {
+				// @include margin(3em 0 6em);
 			}
+			@include media(max-width $desktop min-width $tablet) {
+				@include margin(2em 0 6em);
+				@include pad(0 2em);
+			}
+			@include media(max-width $tablet min-width $mobile) {
+				@include margin(1em 0 2em);
+				font-size: 2.2em;
+			}
+			@include media(max-width $mobile min-width $mobile-xs) {
+				@include margin(1em 0 3em);
+				font-size: 1.8em;
+			}
+			@include media(max-width $mobile-xs) {
+				@include margin(1em 0 1em);
+				font-size: 1.4em;
+			}
+			font-family: $font-head;
+			font-size: 2.6em;
+			line-height: 1.6em;
+			color: lighten($red,10);
+		}
+		p {
+			font-size: 1.4em;
+			color: $black;
 		}
 	}
-	.svg {
-		fill: $red;
-	}
-	.headline {
-		color: darken($red,10);
-	}
-	p {
-		color: shade($orange,40);
-	}
-	li {
-		@include media(max-width $desktop) {
-			@include margin(null null 4em);
-			&:last-child {
-				@include margin(0 null);
-			}
-		}
-	}
+	// .three-column {
+	// 	clear: both;
+	// 	li {
+	// 		@include media(min-width $tablet max-width $desktop) {
+	// 			@include size(30em auto);
+	// 			@include margin(0 auto);
+	// 		}
+	// 		.icon {
+	// 			@include size(3em);
+	// 			// @include pad(2em);
+	// 			// border-radius: 4em;
+	// 			// background-color: $white;
+	// 			// @extend .box-shadow;
+	// 		}
+	// 		p {
+	// 			color: $black;
+	// 		}
+	// 	}
+	// }
+	// .svg {
+	// 	fill: lighten($purple,20);
+	// }
+	// .headline {
+	// 	color: $purple;
+	// }
+	// p {
+	// 	color: shade($orange,40);
+	// }
+	// li {
+	// 	@include media(max-width $desktop) {
+	// 		@include margin(null null 4em);
+	// 		&:last-child {
+	// 			@include margin(0 null);
+	// 		}
+	// 	}
+	// }
 }
 
 .biz-card {
@@ -552,10 +609,36 @@ h2.headline {
 	}
 }
 
+// Three col block
+
+.three-column-outer {
+	.three-column {
+		li {
+			@include media(min-width $tablet max-width $desktop) {
+				@include size(30em auto);
+				@include margin(0 auto);
+			}
+		}
+	}
+	background-color: $cherry;
+	background: linear-gradient(160deg,
+							adjust-hue($cherry, -10deg) 0%,
+							$cherry 50%,
+							adjust-hue($cherry, 10deg) 100%);
+	color: $tan;
+	.svg {
+		fill: $orange;
+	}
+	.headline {
+		color: $white;
+	}
+}
+
 // Listings block
 // ============================================================
 
 .listings {
+	@include pad(10em null);
 	background-color: $purple;
 	background: linear-gradient(160deg,
 							adjust-hue($purple, -20deg) 0%,
@@ -569,6 +652,9 @@ h2.headline {
 		color: tint($tan,20);
 	}
 	.blocks {
+		@include media(min-width $desktop) {
+			@include margin(3em null null);
+		}
 		.blocks-slide-item {
 			@include pad(1em);
 		}
@@ -609,16 +695,16 @@ a .listing-info {
 // ============================================================
 
 .history {
-	background-color: $purple;
-	background: linear-gradient(160deg,
-							adjust-hue($purple, -20deg) 0%,
-							$purple 50%,
-							adjust-hue($purple, 20deg) 100%);
+	background-color: lighten($tan,15);
+	// background: linear-gradient(160deg,
+	// 						adjust-hue($purple, -20deg) 0%,
+	// 						$purple 50%,
+	// 						adjust-hue($purple, 20deg) 100%);
 	.headline {
-		color: $white;
+		color: $purple;
 	}
 	.large {
-		color: $tan;
+		color: $black;
 	}
 	button {
 		color: lighten($orange,10);
@@ -640,14 +726,18 @@ a .listing-info {
 // ============================================================
 
 .stories {
+	@include pad(10em null);
 	background-color: shade($tan,30);
 	.headline {
 		color: $white;
 	}
 	.large {
-		color: $tan;
+		color: lighten($tan,10);
 	}
 	.blocks-slide {
+		@include media(min-width $desktop) {
+			@include margin(3em null null);
+		}
 		.blocks-slide-item {
 			.story-source {
 				@include margin(1.4em 0 0);
@@ -680,8 +770,8 @@ a .listing-info {
 // ============================================================
 
 .tools {
-	background-color: $white;
-	background: linear-gradient(to bottom, $white, darken($white,5));
+	background-color: lighten($tan,15);
+	// background: linear-gradient(to bottom, $white, darken($white,5));
 	color: $black;
 	.headline {
 		color: lighten($purple,10);
@@ -692,7 +782,7 @@ a .listing-info {
 // ============================================================
 
 .contact {
-	background-color: $red;
+	background-color: $cherry;
 	.large {
 		@include media(min-width $desktop) {
 			@include span-columns(8);
@@ -754,7 +844,7 @@ a .listing-info {
 		}
 	}
 	.bg-photo {
-		opacity: .4;
+		opacity: .3;
 	}
 }
 
@@ -776,9 +866,9 @@ a .listing-info {
 .footer {
 	background-color: $cherry;
 	background: linear-gradient(160deg,
-							adjust-hue($cherry, -10deg) 0%,
+							adjust-hue(darken($cherry,10), -10deg) 0%,
 							$cherry 50%,
-							adjust-hue($cherry, 10deg) 100%);
+							adjust-hue(darken($cherry,10), 10deg) 100%);
 	.inner {
 		color: $white;
 		@extend .center;
